@@ -129,33 +129,20 @@ b {
     font-size: 3rem;
 }
 /* MEDIA QUERRY TEMPORAL*/
-
-
-@media screen and (max-width: 768px) {
-    
-/* --- 1. ESTADO POR DEFECTO (Escritorio / Desktop Mode) --- */
-/* Aquí le decimos: "Ocultate SIEMPRE, a menos que yo diga lo contrario" */
-#mobile-blocker {
-    display: none !important;
-}
-
-/* --- 2. ESTADO MÓVIL (Pantallas pequeñas) --- */
-/* Aquí sobreescribimos la regla anterior solo si la pantalla es menor a 768px */
 @media screen and (max-width: 768px) {
     
     #mobile-blocker {
-        /* !important para ganar a la regla de arriba y mostrarse */
-        display: flex !important; 
+        display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         
         position: fixed;
-        /* Las medidas gigantes para evitar el zoom out */
-        width: 150vw;
-        height: 150vh;
-        top: -25vh;
-        left: -25vw;
+        /* TRUCO: Hacemos la caja GIGANTE y la centramos con negativos */
+        width: 150vw;   /* 150% del ancho de la pantalla */
+        height: 150vh;  /* 150% del alto de la pantalla */
+        top: -25vh;     /* La movemos hacia arriba para centrar el exceso */
+        left: -25vw;    /* La movemos a la izquierda para centrar el exceso */
         
         background-color: white;
         color: black;
@@ -164,15 +151,15 @@ b {
         padding: 20px;
         z-index: 99999;
         
-        /* Esto asegura que el click/touch se quede aquí */
-        pointer-events: all;
+        /* Opcional: Esto evita que capturen eventos de tacto fuera del mensaje */
+        pointer-events: all; 
     }
 
-    /* Congelamos el fondo */
+    /* Esto ayuda a bloquear el scroll y el rebote en iOS/Android */
     html, body {
         overflow: hidden;
         height: 100%;
         width: 100%;
-        position: fixed;
+        position: fixed; /* Esto congela el fondo totalmente */
     }
 }
