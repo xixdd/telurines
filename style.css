@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+html {
+    font-size: 62.5%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #e5d0e5;
+}
+
+/* 1. Header (Container styles only) */
+header {
+    background: #623D68;
+    height: 20rem;
+    margin: 10rem 4rem 1rem 4rem;
+    z-index: 2;
+    /* Flex alignment removed as requested */
+}
+
+/* 2. The "Egg" Class - Base Layer (Thick Outline) */
+.egg {
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem; /* Adjust size as needed */
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.20rem;
+    position: relative;
+    display: inline-block; /* Important ensures the box wraps the text tight */
+    
+    /* The Thick Dark Border */
+    color: #0b2f3a; 
+    -webkit-text-stroke: 12px #0b2f3a; 
+    paint-order: stroke fill;
+    
+    /* White Outer Glow */
+    filter: drop-shadow(0px 0px 0.5rem rgba(255, 255, 255, 0.9));
+}
+
+/* 3. The "Egg" Class - Top Layer (Gradient) */
+.egg::before {
+    content: attr(data-text); /* Grabs text from HTML */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    /* The Yellow Gradient */
+    background: linear-gradient(to bottom, #fffec7 25%, #ffcc00 75%);
+    
+    /* Clip background to text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Make text transparent so gradient shows */
+    color: transparent;
+    
+    /* Remove stroke from top layer */
+    -webkit-text-stroke: 0;
+
+}
+
+.emi {
+    max-width: 50rem;
+    max-height: 28rem;
+    position: absolute;
+    right: 64rem;
+    top: 120px;
+    z-index: 3;
+}
+.egg {
+    font-size: 15rem;
+    position: absolute;
+    top: 23rem;
+    left: 30rem;
+    z-index: 3;
+}
+nav {
+    background: paleturquoise;
+    height: 10rem;
+    z-index: 2;
+}
+main {
+    font-size: 1.4rem;
+    margin: 4rem;
+}
+b {
+    color: red;
+}
+#uou{
+    display: flex;
+    gap: 1rem;
+    margin: 4rem 2rem;
+}
+.w {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-top: 0.5rem solid #0b2f3a;
+    border-bottom: 0.5rem solid #0b2f3a;
+}
+#xd{
+    display: flex;
+    background: beige;
+    width: 70rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#o {
+    background: paleturquoise;
+    height: 10rem;
+}
+#cf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+#gy{
+    margin-top: 5rem;
+    max-width: 20rem;
+}
+#j{
+    font-size: 3rem;
+}
