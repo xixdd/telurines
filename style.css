@@ -128,3 +128,37 @@ b {
 #j{
     font-size: 3rem;
 }
+/* MEDIA QUERRY TEMPORAL*/
+
+
+@media screen and (max-width: 768px) {
+    
+    #mobile-blocker {
+        /* Se muestra y usa Flexbox para centrar el texto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        /* Posición fija para tapar todo */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        
+        /* Estilos visuales */
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        font-family: sans-serif;
+        
+        /* Z-index muy alto para estar encima de todo */
+        z-index: 99999;
+    }
+
+    /* Opcional: Evita que el usuario haga scroll en la página de fondo */
+    body {
+        overflow: hidden;
+    }
+}
