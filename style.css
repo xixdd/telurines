@@ -134,31 +134,34 @@ b {
 @media screen and (max-width: 768px) {
     
     #mobile-blocker {
-        /* Se muestra y usa Flexbox para centrar el texto */
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         
-        /* Posición fija para tapar todo */
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        /* TRUCO: Hacemos la caja GIGANTE y la centramos con negativos */
+        width: 150vw;   /* 150% del ancho de la pantalla */
+        height: 150vh;  /* 150% del alto de la pantalla */
+        top: -25vh;     /* La movemos hacia arriba para centrar el exceso */
+        left: -25vw;    /* La movemos a la izquierda para centrar el exceso */
         
-        /* Estilos visuales */
         background-color: white;
         color: black;
         font-size: 20px;
         font-family: sans-serif;
-        
-        /* Z-index muy alto para estar encima de todo */
+        padding: 20px;
         z-index: 99999;
+        
+        /* Opcional: Esto evita que capturen eventos de tacto fuera del mensaje */
+        pointer-events: all; 
     }
 
-    /* Opcional: Evita que el usuario haga scroll en la página de fondo */
-    body {
+    /* Esto ayuda a bloquear el scroll y el rebote en iOS/Android */
+    html, body {
         overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: fixed; /* Esto congela el fondo totalmente */
     }
 }
