@@ -128,7 +128,11 @@ b {
 #j{
     font-size: 3rem;
 }
-/* MEDIA QUERRY TEMPORAL*/
+/* Por defecto, el mensaje está oculto */
+#mobile-blocker {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     
     #mobile-blocker {
