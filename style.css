@@ -62,32 +62,6 @@ header {
 .egg {
     font-size: 5rem;
 }
-.admain {
-    position: relative;
-    background: paleturquoise;
-    height: 10rem;
-    z-index: 0;
-    overflow: hidden;
-}
-@keyframes scrollleft {
-    to {
-        left: -980px;
-    }
-}
-.ad {
-    position: absolute;
-    left: 100%;
-    animation-name: scrollleft;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-.x1 {
-    animation-delay: calc(10s / 2 * (2 - 1) * -1);
-}
-.x2 {
-    animation-delay: calc(10s / 2 * (2 - 2) * -1);
-}
 main {
     font-size: 1rem;
 }
@@ -107,45 +81,6 @@ b {
 }
 #j{
     font-size: 3rem;
-}
-/* Por defecto, el mensaje está oculto */
-#mobile-blocker {
-    display: none;
-}
-
-@media screen and (max-width: 768px) {
-    
-    #mobile-blocker {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        
-        position: fixed;
-        /* TRUCO: Hacemos la caja GIGANTE y la centramos con negativos */
-        width: 150vw;   /* 150% del ancho de la pantalla */
-        height: 150vh;  /* 150% del alto de la pantalla */
-        top: -25vh;     /* La movemos hacia arriba para centrar el exceso */
-        left: -25vw;    /* La movemos a la izquierda para centrar el exceso */
-        
-        background-color: white;
-        color: black;
-        font-size: 20px;
-        font-family: sans-serif;
-        padding: 20px;
-        z-index: 99999;
-        
-        /* Opcional: Esto evita que capturen eventos de tacto fuera del mensaje */
-        pointer-events: all; 
-    }
-
-    /* Esto ayuda a bloquear el scroll y el rebote en iOS/Android */
-    html, body {
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        position: fixed; /* Esto congela el fondo totalmente */
-    }
 }
 #nav2 {
     background: #e6cc00;
