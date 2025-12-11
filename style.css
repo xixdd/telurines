@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 html {
-    font-size: 62.5%;
+    font-size: 10px;
 }
 * {
     margin: 0;
@@ -19,7 +19,7 @@ header {
 /* 2. The "Egg" Class - Base Layer (Thick Outline) */
 .egg {
     font-family: 'Anton', sans-serif;
-    font-size: 8rem; /* Adjust size as needed */
+    font-size: 5rem; /* Adjust size as needed */
     margin: 0;
     line-height: 1;
     letter-spacing: 0.20rem;
@@ -28,7 +28,7 @@ header {
     
     /* The Thick Dark Border */
     color: #0b2f3a; 
-    -webkit-text-stroke: 12px #0b2f3a; 
+    -webkit-text-stroke: 0.7rem #0b2f3a; 
     paint-order: stroke fill;
     
     /* White Outer Glow */
@@ -59,17 +59,8 @@ header {
     -webkit-text-stroke: 0;
 
 }
-
-.emi {
-    max-width: 50rem;
-    max-height: 28rem;
-    position: absolute;
-    left: 61rem;
-    top: 2rem;
-    z-index: 3;
-}
 .egg {
-    font-size: 15rem;
+    font-size: 5rem;
 }
 .admain {
     position: relative;
@@ -112,7 +103,7 @@ b {
 }
 #gy{
     margin-top: 5rem;
-    max-width: 20rem;
+    max-width: 10rem;
 }
 #j{
     font-size: 3rem;
