@@ -13,6 +13,8 @@ body {
 /* 1. Header (Container styles only) */
 header {
     background: darkmagenta;
+    top: 0;
+    position: sticky;
     /* Flex alignment removed as requested */
 }
 
@@ -65,35 +67,29 @@ header {
 main {
     font-size: 1rem;
 }
-b {
-    color: red;
-}
 #cf{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+    "sidebar main"
+    "sidebar footer"
 }
-#gy{
-    margin-top: 5rem;
-    max-width: 10rem;
+aside{
+    grid-area: sidebar;
+    background-color: lightyellow;
 }
-#j{
-    font-size: 3rem;
+main{
+    grid-area: main;
 }
+footer{
+    grid-area: footer;
+}
+
 #nav2 {
     background: #e6cc00;
-    height: 7rem;
-    margin-top: 0.5rem;
-    z-index: 0;
-}
-#vt {
-    font-size: 4rem;
-    position: absolute;
-    top: 27rem;
-    right: 0.5rem;
-    color: dimgray;
-    z-index: 10;
-    font-family: anton;
+    height: 3rem;
+    position: sticky;
+    top: 5rem;
 }
