@@ -7,7 +7,7 @@ html {
     padding: 0;
 }
 body {
-    background: #f7f5bc;
+    background: white;
 }
 
 /* 1. Header (Container styles only) */
@@ -78,18 +78,31 @@ main {
 }
 aside{
     grid-area: sidebar;
-    background-color: lightyellow;
+    background-color: #fff0ff;
+    border-right: solid #00000040;
 }
 main{
     grid-area: main;
+    padding: 1rem;
 }
 footer{
     grid-area: footer;
 }
 
 #nav2 {
-    background: #e6cc00;
-    height: 3rem;
+    background: #b57edc;
+    height: 2rem;
     position: sticky;
     top: 5rem;
+}
+#terbaru{
+    background: #e8bcf0;
+    padding: 0.3rem;
+}
+#terbaru p {
+    font-family: Anton;
+}
+#versi p{
+    background: #da8ee7;
+    font-family: Arial, Helvetica, sans-serif;
 }
