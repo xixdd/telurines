@@ -131,3 +131,10 @@ img {
     right: 0;
     z-index: 0;
 }
+h2{
+    background: beige;
+    height: 30rem;
+    width: 25rem;
+    text-align: center;
+    align-content: center ;
+}
