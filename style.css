@@ -136,7 +136,6 @@ img {
 h2{
     background: beige;
     height: 30rem;
-    width: 25rem;
     text-align: center;
     align-content: center ;
 }
@@ -146,4 +145,12 @@ h2{
     top: -0.3rem;
     z-index: 888;
     left: 20rem;
+}
+.inf{
+    background: #fff0ff;
+    padding: 0.5rem;
+    margin: -0.1rem;
+}
+#other {
+    max-width: 70%;
 }
