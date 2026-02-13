@@ -1,0 +1,55 @@
+.fjalla-one-regular {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body{
+  background: beige;
+  font-family: Fjalla One;
+}
+div {
+  display: block;
+  text-align: center;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+}
+.warning {
+  background: orangered;
+  color: yellow;
+  font-family: monospace;
+}
+img {
+  border-radius: 10px;
+  max-width: 100px;
+  margin-right: 5px;
+}
+article {
+  max-height: 3rem;
+  z-index: 0;
+}
+header {
+  display: flex;
+  margin-bottom: 1rem;
+  background: #FFD500;
+  padding: 3px;
+  border: solid black 3px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
+  z-index: 1;
+}
+
+section {
+  margin-top: 1rem;
+  background: white;
+  border: solid black 2px;
+}

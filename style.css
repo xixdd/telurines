@@ -14,7 +14,7 @@ body {
     background-size: 160px 160px;
     background-repeat: no-repeat;
     width: 100%;
-    background-position: 105% 114%;
+    background-position: 90% 150%;
 }
 header {
     background: sandybrown;
@@ -85,7 +85,7 @@ main {
     margin: 2rem;
 }
 #konten {
-    height: 50rem;
+    height: 20rem;
     display: grid;
     grid-auto-rows: 5rem;
 }

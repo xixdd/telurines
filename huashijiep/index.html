@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>画世界</title>
+  <link rel="stylesheet" href="css/stylehua.css">
+  <link rel="icon" href="images/logo.jpg" type: "icon/x-image">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.jpg">
+    <article>
+      <h3>
+        ¿Lo sabías?
+      </h3> 
+      "画" Signica pintura/dibujo y "世界" Es mundo.
+    </article>
+  </header>
+
+  <Div>
+    <h1>
+      Hua Shijie Pro
+    </h1>
+    <hr>
+    <p>Hua Shijie Pro en app de dibujo especialmente optimizada para teléfonos y tablets.</p>
+    <p>Entre sus características mas destacadas, además de ser bastante fluida en dispositivos no tan recientes, incluye también mas de 100 pinceles y una gran cantidad de ajustes para estos, incluso puedes importar pinceles de Photoshop en formato ABR.</p>
+    <p> Además tiene distintos filtros que a diferencia de itras apps, son completamente gratuitos, tales como mapa de gradientes y curva de tonos, entre otros.</p>
+  </Div>
+  <div class="warning">
+    <h2>
+      IMPORTANTE /!\
+    </h2>
+    <p>Es necesario recalcar que la aplicación está totalmente en chino, toda la interfaz y herramientas están en chino y no hay ajustes de idioma, ni siquiera inglés.</p>
+    <p> Por eso mismo, haré algunos tutoriales y listas con traducción de cada boton, opción y herramienta. Aunque tengan en cuenta que nadie me ayuda así que tomará un poco de tiempo.</p>
+  </div>
+  <section>
+    <ul>
+      <li>
+        <a href="download.html">Descargar</a>
+      </li>
+      <li>
+        <a href="#">Tutoriales y traducciones (Aún en construcción)</a>
+      </li>
+    </ul>
+  </section>
+  <script>
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const hasSeenAlert = localStorage.getItem('alertShown');
+
+    if (userLanguage.startsWith('es') && !hasSeenAlert) {
+    alert("Actualizo la página cada que puedo, se que ahora luce fea pero mejorará con el tiempo. X: @xixdxd");
+    localStorage.setItem('alertShown', 'true');
+}
+
+  </script>
+</body>
+
+</html>

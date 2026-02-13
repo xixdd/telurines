@@ -1,0 +1,32 @@
+main{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img{ 
+  max-width: 400px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  background: beige;
+}
+mark{
+  background: #FFEA80;
+}
+p {
+  background: #FDF4CB;
+}
+h2 {
+  background: #FFC300;
+  width: 100%;
+}
+h1 {
+  background: #FFB915;
+  padding: 1rem;
+  border: black solid 3px;
+  border-left: 0;
+  border-right: 0;
+}
