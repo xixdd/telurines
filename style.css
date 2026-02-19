@@ -122,8 +122,26 @@ nav {
 .ads {
     display: block;
     text-align: center;
-    margin-top: 1rem;
 }
 img {
     max-width: 250px;
+}
+.ads {
+    display: flex;
+    gap: 2px;
+    animation: spin 5s Infinite linear;
+    padding-right: 2px;
+}
+.carousel {
+    display: flex;
+    margin-top: 1rem;
+    border: black solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    width: 250px;
+}
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
 }
