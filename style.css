@@ -119,3 +119,11 @@ nav {
     background: saddlebrown;
     height: 0.7rem;
 }
+.ads {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+img {
+    max-width: 250px;
+}
