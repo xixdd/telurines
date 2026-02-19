@@ -21,7 +21,7 @@ header {
     padding: 0.5rem;
 }
 
-/* 2. The "Egg" Class - Base Layer (Thick Outline) */
+/*  (Thick Outline) */
 .egg {
     font-family: 'Anton', sans-serif;
     font-size: 5rem; /* Adjust size as needed */
@@ -37,7 +37,7 @@ header {
     paint-order: stroke fill;
 }
 
-/* 3. The "Egg" Class - Top Layer (Gradient) */
+/* Top Layer (Gradient) */
 .egg::before {
     content: attr(data-text); /* Grabs text from HTML */
     position: absolute;
