@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+body {
+  background: beige;
+  margin: 0;
+}
+a {
+  display: block;
+  font-size: 1.1rem;
+}
+
+/*  (Thick Outline) */
+.egg {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem; /* Adjust size as needed */
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.20rem;
+    position: relative;
+    display: inline-block; /* Important ensures the box wraps the text tight */
+    
+    /* The Thick Dark Border */
+    color: #0b2f3a; 
+    -webkit-text-stroke: 0.5rem black; 
+    paint-order: stroke fill;
+}
+
+/* Top Layer (Gradient) */
+.egg::before {
+    content: attr(data-text); /* Grabs text from HTML */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*width: 100%;
+    height: 100%;
+    z-index: 1;*/
+    
+    /* The Yellow Gradient */
+    background: linear-gradient(to bottom, #fffec7 25%, #ffcc00 75%);
+    
+    /* Clip background to text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Make text transparent so gradient shows */
+    color: transparent;
+    
+    /* Remove stroke from top layer */
+    -webkit-text-stroke: 0;
+}
+h1 {
+  background: sandybrown;
+  width: 100%;
+  height: 3.2rem;
+  border: solid black 3px;
+}
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: black solid 0.5rem;
+  position: relative;
+  overflow: hidden;
+  width: 155px;
+  height: 155px;
+}
+.img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  inset: 0 0 50% 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
+  z-index: 1;
+}
+section{
+  background: white;
+  height: 40rem;
+  border: solid black 2px;
+  padding: 5px;
+  margin: 1rem;
+}
+a{
+  margin-top: 5px;
+}
+.buttons {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: darkslategray;
+  color: white;
+  border-radius: 5px;
+}
+#xd {
+  display: block;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}

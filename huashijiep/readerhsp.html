@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutoriales HSP</title>
+  <link rel="icon" href="images/logo.jpg" type: "icon/x-image">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="css/down.css">
+</head>
+
+<body>
+    <a href="howto.html" class="back-link">← Volver al menú</a>
+    <div id="content">Cargando contenido...</div>
+
+    <script>
+        async function loadMarkdown() {
+            // 1. Obtener el nombre del archivo de la URL (?file=archivo.md)
+            const params = new URLSearchParams(window.location.search);
+            const fileName = params.get('file');
+
+            if (!fileName) {
+                document.getElementById('content').innerHTML = "Error: No se especificó ningún archivo.";
+                return;
+            }
+
+            try {
+                // 2. Hacer fetch del archivo Markdown (debe estar en la misma carpeta o ruta relativa)
+                const url = `documentos/${fileName}`;
+                
+                const response = await fetch(`documentos/${fileName}`);
+                
+                if (!response.ok) throw new Error("Archivo no encontrado");
+
+                const markdownText = await response.text();
+
+                // 3. Renderizar el Markdown a HTML usando Marked.js
+                document.getElementById('content').innerHTML = marked.parse(markdownText);
+            } catch (error) {
+                document.getElementById('content').innerHTML = "Error al cargar el artículo: " + error.message;
+            }
+        }
+
+        // Ejecutar la función al cargar la página
+        loadMarkdown();
+    </script>
+</body>
+
+</html>
