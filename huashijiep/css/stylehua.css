@@ -3,53 +3,95 @@
   font-weight: 400;
   font-style: normal;
 }
+* {
+  margin: 0;
+}
 body{
-  background: beige;
   font-family: Fjalla One;
+  background: #dfcae3;
 }
 div {
   display: block;
-  text-align: center;
-  padding: 0.7rem;
-  margin-top: 0.5rem;
+  padding: 0.2rem;
+  margin-top: 1rem;
 }
 .warning {
   background: orangered;
   color: yellow;
   font-family: monospace;
+  margin: auto;
+  padding: 1rem;
+  width: 350px;
 }
 img {
   border-radius: 10px;
-  max-width: 100px;
-  margin-right: 5px;
-}
-article {
-  max-height: 3rem;
-  z-index: 0;
+  max-width: 3rem;
+  height: auto;
 }
 header {
   display: flex;
-  margin-bottom: 1rem;
-  background: #FFD500;
-  padding: 3px;
-  border: solid black 3px;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-}
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
-  z-index: 1;
-}
-
-section {
-  margin-top: 1rem;
+  row-gap: 1rem;
+  align-items: flex-start;
   background: white;
+  margin: 0;
+  width: 100%;
+}
+#img2 {
+  margin-left: auto;
+}
+h1{
+  margin-left: 10px;
+  margin-top: 0;
+  stroke: White solid 2px;
+}
+#img1 {
   border: solid black 2px;
+}
+a {
+  display: block;
+  background: #0172ff;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  color: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(to right,
+    #0172ff 0%,
+    #0172ff 65%,
+    #0bf3b7 100%);
+  border: darkblue solid 2px;
+}
+.destacados {
+  margin-top: 1rem;
+  background: darkslateblue;
+  color: #0bf3b7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.warning {
+  text-align: center;
+  border: black solid 2px;
+}
+main {
+  margin: 2rem 1rem 2rem 1rem;
+}
+section {
+  background: darkslateblue;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#titl {
+  font-size: 3rem;
+}
+.xd {
+  min-width: 500px;
+  border-radius: 0;
+  display: block;
+  text-align: center;
 }
