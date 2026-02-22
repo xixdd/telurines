@@ -1,85 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+.fjalla-one-regular {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 body {
-  background: beige;
+  background: #dfcae3;
   margin: 0;
 }
 a {
   display: block;
   font-size: 1.1rem;
 }
-
-/*  (Thick Outline) */
-.egg {
-    font-family: 'Anton', sans-serif;
-    font-size: 3rem; /* Adjust size as needed */
-    margin: 0;
-    line-height: 1;
-    letter-spacing: 0.20rem;
-    position: relative;
-    display: inline-block; /* Important ensures the box wraps the text tight */
     
-    /* The Thick Dark Border */
-    color: #0b2f3a; 
-    -webkit-text-stroke: 0.5rem black; 
-    paint-order: stroke fill;
-}
-
-/* Top Layer (Gradient) */
-.egg::before {
-    content: attr(data-text); /* Grabs text from HTML */
-    position: absolute;
-    left: 0;
-    top: 0;
-    /*width: 100%;
-    height: 100%;
-    z-index: 1;*/
-    
-    /* The Yellow Gradient */
-    background: linear-gradient(to bottom, #fffec7 25%, #ffcc00 75%);
-    
-    /* Clip background to text */
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    /* Make text transparent so gradient shows */
-    color: transparent;
-    
-    /* Remove stroke from top layer */
-    -webkit-text-stroke: 0;
-}
-h1 {
-  background: sandybrown;
+header{
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: white;
   width: 100%;
-  height: 3.2rem;
-  border: solid black 3px;
-}
-.img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  margin-top: 2rem;
-  border: black solid 0.5rem;
-  position: relative;
-  overflow: hidden;
-  width: 155px;
-  height: 155px;
-}
-.img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  inset: 0 0 50% 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
-  z-index: 1;
+  padding: 0;
+  margin: 0;
+  height: auto;
 }
 section{
   background: white;
   height: 40rem;
   border: solid black 2px;
-  padding: 5px;
   margin: 1rem;
 }
 a{
@@ -102,4 +50,40 @@ a{
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
+}
+.imglogo{
+  max-width: 3rem;
+  border-radius: 8px;
+}
+#huevo{
+  margin-left: auto;
+}
+h1{
+  font-size: 2.3rem;
+  font-family: Fjalla One;
+  margin: 0;
+  margin-right: auto;
+}
+h3 {
+  margin: 0;
+  width: 100%;
+  color: white ;
+  background: linear-gradient(to right,
+  #0172ff 0%,
+  #0172ff 65%,
+  #0bf3b7 100%);
+}
+main{
+  padding: 1rem;
+}
+#xi {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+}
+h2 {
+  font-display: Fjalla One;
+  font-size: 3rem;
+  margin: 0;
 }
