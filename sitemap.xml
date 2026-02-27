@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
-    <loc>https://telurines.pages.dev/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://telurines.pages.dev/huashijiep/howto.html</loc>
+    <lastmod>2026-02-27</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://telurines.pages.dev/ad.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.8</priority>
+    <loc>https://telurines.pages.dev/huashijiep/index.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://telurines.pages.dev/index.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://telurines.pages.dev/noticias.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://telurines.pages.dev/xi.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.6</priority>
   </url>
-
   <url>
-    <loc>https://telurines.pages.dev/huashijiep/index.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.7</priority>
+    <loc>https://telurines.pages.dev/ad.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://telurines.pages.dev/huashijiep/download.html</loc>
-    <lastmod>2026-02-24</lastmod>
+    <lastmod>2026-02-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://telurines.pages.dev/huashijiep/howto.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.7</priority>
+    <loc>https://telurines.pages.dev/huashijiep/folderbru.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://telurines.pages.dev/huashijiep/readerhsp.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-
   <url>
     <loc>https://telurines.pages.dev/isekaikaramekishikoni/index.html</loc>
-    <lastmod>2026-02-24</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-02-27</lastmod>
+    <priority>0.5</priority>
   </url>
-
 </urlset>
