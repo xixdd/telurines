@@ -87,3 +87,14 @@ h2 {
   font-size: 3rem;
   margin: 0;
 }
+main {
+  background: white;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  padding-top: 0;
+}
+main > h2 {
+  background: #0172ff;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+}

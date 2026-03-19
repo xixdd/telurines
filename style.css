@@ -1,22 +1,28 @@
-/* Reset and Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 body {
     font-family: "MS PGothic", "MS Gothic", "Hiragino Kaku Gothic Pro", sans-serif;
     font-size: 12px;
     line-height: 1.6;
-    background-color: white;
+    background-color: wheat;
     color: #333;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #e8e8e8;
+    background-color: #FAF9C8;
     min-height: 100vh;
     border: black solid 3px;
     border: 0 3px 3px 0;
@@ -47,8 +53,7 @@ body {
 .logo h1 {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
-    letter-spacing: -1px;
+    color: black;
 }
 
 .logo .plus {
@@ -58,13 +63,14 @@ body {
 .site-title {
     font-size: 12px;
     color: #666;
+    font-family: Anton;
 }
 
 /* Navigation */
 .nav {
-    background-color: #eade8c;
-    border-top: 1px solid #6c613c;
-    border-bottom: 1px solid #6c613c;
+    background-color: #B3BD2F;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     z-index: 9999;
 }
 
@@ -75,18 +81,18 @@ body {
 }
 
 .nav-list li {
-    border-right: 1px solid #6c613c;
+    border-right: 1px solid black;
 }
 
 .nav-list li:first-child {
-    border-left: 1px solid #6c613c;
+    border-left: 1px solid black;
 }
 
 .nav-list a {
     display: block;
     padding: 8px 20px;
     text-decoration: none;
-    color: #333;
+    color: black;
     font-size: 13px;
     font-weight: bold;
     transition: background-color 0.2s;
@@ -99,7 +105,7 @@ body {
 /* Hero Carousel */
 .hero {
     padding: 10px;
-    background-color: #d3d1c4;
+    background-color: #F3E3A5;
 }
 
 .carousel {
@@ -191,7 +197,7 @@ body {
     display: flex;
     padding: 15px;
     gap: 15px;
-    background-color:  beige;
+    background-color:  #FAF9C8;
 }
 
 /* Topics Section */
@@ -277,7 +283,7 @@ body {
     align-items: center;
     gap: 20px;
     padding: 15px;
-    background-color: #d3d1c4;
+    background-color: #F3E3A5;
     border-top: 1px solid #ccc;
 }
 
@@ -330,4 +336,15 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+main {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background: #F3E3A5;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    padding: 1rem;
 }
