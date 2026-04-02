@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-if (!localStorage.getItem("alertShown")) {
-    alert("Welcome!");
-    localStorage.setItem("alertShown", "true");
-}
+// if (!localStorage.getItem("alertShown")) {
+//    alert("Welcome!");
+//    localStorage.setItem("alertShown", "true");
+//}

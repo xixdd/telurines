@@ -93,7 +93,7 @@ body {
     top: 0;
     left: 0;
     width: 280px;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--sidebar-bg);
     z-index: 80;
     transform: translateX(-100%);
@@ -422,7 +422,7 @@ body {
     .sidebar-menu {
         width: 260px;
     }
-    
+
     .arrow-btn {
         width: 50px;
         height: 50px;
@@ -469,3 +469,10 @@ body {
 .sidebar-menu.open .sidebar-link:nth-child(3) { animation-delay: 0.2s; }
 .sidebar-menu.open .sidebar-link:nth-child(4) { animation-delay: 0.25s; }
 .sidebar-menu.open .sidebar-link:nth-child(5) { animation-delay: 0.3s; }
+
+
+.ad {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
