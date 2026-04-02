@@ -61,3 +61,10 @@ h3 {
     max-width: 700px;
   }
 }
+
+details {
+  color: white;
+}
+a {
+  color: #fff;
+}
