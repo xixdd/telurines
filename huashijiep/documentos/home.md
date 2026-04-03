@@ -1,3 +1,10 @@
+
+___
+
+[Go back](index.html)
+
+___
+
 # Home Screen
 
 Here I'll go over the things you can do on the home screen — this is one of the easier ones.

@@ -136,3 +136,5 @@ function handleSwipe() {
 }
 
 console.log('画世界Pro - Website loaded successfully!');
+
+alert("/!\\ Remember this please, it's very important:\n\n取消=Cancel  确定=Continue");
