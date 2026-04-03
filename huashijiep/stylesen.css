@@ -396,7 +396,7 @@ body {
     box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
 }
 
-/* Responsive Design */
+/* Responsive Design 
 @media (max-width: 640px) {
     .app-info {
         flex-direction: column;
@@ -432,7 +432,7 @@ body {
         width: 24px;
         height: 24px;
     }
-}
+}*/
 
 /* Animations */
 @keyframes pulse {
