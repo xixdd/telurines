@@ -1,46 +1,1085 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kijin Gentoshou En Español</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kijin Gentoushou - Light Novel Reader</title>
+  <link rel="icon" type="image/jpg" href="cover.jpg">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a25;
+      --text-primary: #e8e8f0;
+      --text-secondary: #a0a0b0;
+      --text-muted: #606070;
+      --border: #2a2a3a;
+      --accent: #4a4a6a;
+      --accent-hover: #5a5a7a;
+      --primary: #7a7aaa;
+      --primary-hover: #8a8aba;
+    }
 
-<body>
-  <div class="content">
-    <div class="c1">
-      <img src="img/s.jpg" alt="Kijin Gentoshou" class="img1" />
-      <div id="maintb">
-        <div id="mainb">
-      <h1>鬼人幻燈抄</h1>
-      <h2>Kijin Gentōshō</h2>
-      <p>La doncella del santuario de la aldea de Kadono tiene un guardián cada generación. Durante el período Edo, el guardián Jinta se enfrenta a un demonio que predice el ascenso de un futuro Dios Demonio vinculado a su era. Su búsqueda para evitarlo abarca siglos.</p>
+    [data-theme="light"] {
+      --bg-primary: #f5f5f7;
+      --bg-secondary: #ffffff;
+      --bg-card: #f0f0f5;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a4a5e;
+      --text-muted: #8a8a9e;
+      --border: #d0d0e0;
+      --accent: #e0e0f0;
+      --accent-hover: #d0d0e5;
+      --primary: #5a5a8a;
+      --primary-hover: #4a4a7a;
+    }
+
+    /* ===== Reset & Base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .logo img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cover-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .title-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .title-section h2 {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .title-section .author {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .synopsis h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .synopsis p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    /* ===== Volume Selector ===== */
+    .volume-selector {
+      position: relative;
+    }
+
+    .volume-selector label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .volume-dropdown-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .volume-dropdown-btn:hover {
+      background: var(--accent);
+    }
+
+    .volume-dropdown-btn .volume-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .volume-dropdown-btn img {
+      width: 40px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .volume-dropdown-btn .chevron {
+      transition: transform 0.2s;
+    }
+
+    .volume-dropdown-btn.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .volume-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 50;
+      display: none;
+    }
+
+    .volume-dropdown.open {
+      display: block;
+    }
+
+    .volume-option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .volume-option:hover,
+    .volume-option.active {
+      background: var(--accent);
+    }
+
+    .volume-option img {
+      width: 40px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* ===== Action Buttons ===== */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border-color: transparent;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-secondary);
+    }
+
+    .separator {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border-radius: 8px;
+    }
+
+    /* ===== Reader Section ===== */
+    .reader-section {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .reader-section.active {
+      display: block;
+    }
+
+    .reader-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      min-height: calc(100vh - 200px);
+    }
+
+    .reader-content {
+      flex: 1;
+      padding: 2rem;
+      transition: margin-right 0.3s;
+    }
+
+    .reader-content.sidebar-open {
+      margin-right: 320px;
+    }
+
+    .reader-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .chapter-title {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Markdown Content ===== */
+    .markdown-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .markdown-content h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .markdown-content h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .markdown-content h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .markdown-content p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .markdown-content blockquote {
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      border-left: 4px solid var(--primary);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    .markdown-content li {
+      margin: 0.5rem 0;
+      color: var(--text-secondary);
+    }
+
+    .markdown-content strong {
+      color: var(--text-primary);
+    }
+
+    .markdown-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .markdown-content em {
+      color: var(--text-muted);
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      position: fixed;
+      right: 0;
+      top: 60px;
+      bottom: 0;
+      width: 320px;
+      background: var(--bg-card);
+      border-left: 1px solid var(--border);
+      transform: translateX(100%);
+      transition: transform 0.3s;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      padding: 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .sidebar-toggle:hover {
+      background: var(--accent);
+    }
+
+    .egg-icon {
+      width: 16px;
+      height: 22px;
+      background: var(--text-primary);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+
+    .sidebar-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-header h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+
+    /* ===== Settings ===== */
+    .setting-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .setting-group h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .egg-toggle {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .egg-btn {
+      width: 20px;
+      height: 28px;
+      border: 2px solid var(--text-primary);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .egg-btn.filled {
+      background: var(--text-primary);
+    }
+
+    .egg-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .font-slider {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+
+    .font-slider input {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--border);
+      outline: none;
+    }
+
+    .font-slider input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+    }
+
+    .font-size-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .font-select {
+      width: 100%;
+      padding: 0.5rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+    }
+
+    /* ===== Chapter List ===== */
+    .chapter-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .chapter-btn {
+      padding: 0.75rem;
+      text-align: left;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .chapter-btn:hover {
+      background: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .chapter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ===== Floating Buttons ===== */
+    .floating-buttons {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 80;
+    }
+
+    .floating-btn {
+      padding: 0.5rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+
+    .floating-btn:hover {
+      background: var(--accent);
+    }
+
+    /* ===== Scrollbar ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo" onclick="scrollToTop(); return false;">
+        <img src="/assets/iconx.png" alt="Egg Logo">
+        <span>Telurines._.xd</span>
+      </a>
     </div>
-        <main>
-      <h1>鬼人幻燈抄</h1>
-      <h2>Kijin Gentōshō</h2>
-      <p>La doncella del santuario de la aldea de Kadono tiene un guardián cada generación. Durante el período Edo, el guardián Jinta se enfrenta a un demonio que predice el ascenso de un futuro Dios Demonio vinculado a su era. Su búsqueda para evitarlo abarca siglos.</p>
-    </main>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid">
+      <!-- Cover Image -->
+      <div>
+        <img src="cover.jpg" alt="Kijin Gentoushou Cover" class="cover-image">
+      </div>
+
+      <!-- Info -->
+      <div class="hero-info">
+        <div class="title-section">
+          <h1>鬼人幻燈抄</h1>
+          <h2>Kijin Gentoushou</h2>
+          <p class="author">Motou Nakanishi</p>
+        </div>
+
+        <div class="synopsis">
+          <h3>Synopsis</h3>
+          <p>La doncella del santuario de la aldea de Kadono tiene un guardián cada generación. Durante el período Edo, el guardián Jinta se enfrenta a un demonio que predice el ascenso de un futuro Dios Demonio vinculado a su era. Su búsqueda para evitarlo abarca siglos.</p>
+        </div>
+
+        <!-- Volume Selector -->
+        <div class="volume-selector">
+          <label>Select Volume</label>
+          <button class="volume-dropdown-btn" id="volumeDropdownBtn" onclick="toggleVolumeDropdown()">
+            <span class="volume-info">
+              <img src="cover.jpg" alt="Volume Cover" id="selectedVolumeImg">
+              <span id="selectedVolumeTitle">Volume 1</span>
+            </span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="volume-dropdown" id="volumeDropdown"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+          <a href="#" id="pdfEnglishLink" class="btn btn-outline" target="_blank">
+            <span>English LN PDF (Seven seas)</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </a>
+          
+          <div class="separator">LN en español (Fan translation de Xi & Telurines)↓</div>
+          
+          <a href="#" id="pdfSpanishLink" class="btn btn-outline" target="_blank">
+            <span>Descargar PDF</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </a>
+          
+          <button class="btn btn-primary" onclick="openReader()">
+            <span>Leer online</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          
+          <a href="https://ncode.syosetu.com/n1234abcd/" id="japaneseSourceLink" class="btn btn-ghost" target="_blank">
+            <span>Original source. Japanese WN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="c2">
-      <article>
-        <h3>Novela web en español</h3>
-        <details>
-          <summary>Volumen 1</summary>
-          <a href="kijingentoshouleer.html?file=c1.md">Prólogo parte 1</a>
-        </details>
-      </article>
-      <article>
-        <h3>Novela ligera en inglés</h3>
-      </article>
-      <article>
-        <h3>Manga en español</h3>
-      </article>
-    </div>
-  </div>
-</body>
+  </section>
 
+  <!-- Reader Section -->
+  <section class="reader-section" id="readerSection">
+    <div class="reader-container">
+      <!-- Main Content -->
+      <div class="reader-content" id="readerContent">
+        <div class="reader-toolbar">
+          <span class="chapter-title" id="currentChapterTitle">Select a chapter from the menu</span>
+        </div>
+        <div class="markdown-content" id="markdownContent">
+          <p style="color: var(--text-muted); text-align: center; padding: 3rem;">
+            Click "Leer online" and select a chapter to start reading.
+          </p>
+        </div>
+      </div>
+
+      <!-- Settings Sidebar -->
+      <aside class="sidebar" id="settingsSidebar">
+        <button class="sidebar-toggle" onclick="toggleSettingsSidebar()">
+          <div class="egg-icon"></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="sidebar-header">
+          <h3>MENU</h3>
+        </div>
+        <div class="sidebar-content">
+          <div class="setting-group">
+            <div class="theme-toggle">
+              <h4>Theme settings</h4>
+              <div class="egg-toggle">
+                <button class="egg-btn filled" id="darkEgg" onclick="setTheme('dark')" title="Dark"></button>
+                <button class="egg-btn" id="lightEgg" onclick="setTheme('light')" title="Light"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <h4>Font size</h4>
+            <div class="font-slider">
+              <input type="range" min="12" max="32" value="16" id="fontSizeSlider" oninput="updateFontSize(this.value)">
+            </div>
+            <div class="font-size-labels">
+              <span>A</span>
+              <span id="fontSizeValue">16px</span>
+              <span style="font-size: 1.2em;">A</span>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <h4>Font family</h4>
+            <select class="font-select" id="fontFamilySelect" onchange="updateFontFamily(this.value)">
+              <option value="serif">Serif</option>
+              <option value="sans-serif">Sans Serif</option>
+              <option value="monospace">Monospace</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Chapter Sidebar -->
+      <aside class="sidebar" id="chapterSidebar">
+        <button class="sidebar-toggle" onclick="toggleChapterSidebar()">
+          <div class="egg-icon"></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="sidebar-header">
+          <h3>MENU</h3>
+          <p id="chapterSidebarVolume">Volume 1</p>
+        </div>
+        <div class="sidebar-content">
+          <div class="setting-group">
+            <h4>Chapters</h4>
+            <div class="chapter-list" id="chapterList"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Floating Buttons -->
+      <div class="floating-buttons" id="floatingButtons" style="display: none;">
+        <button class="floating-btn" onclick="toggleChapterSidebar()">Chapters</button>
+        <button class="floating-btn" onclick="toggleSettingsSidebar()">Settings</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // ===== Data =====
+    // Static Japanese source link (never changes)
+    const japaneseSourceUrl = 'https://ncode.syosetu.com/n1234abcd/';
+    
+    // PDF links
+    const volumes = [
+      {
+        id: 1,
+        title: 'Volume 1',
+        coverImage: 'cover.jpg',
+        pdfEnglish: 'https://drive.google.com/file/d/10wxCNu7LvTCnVQHXBLYcCZjSsOSzC3JO/view?usp=drivesdk',
+        pdfSpanish: '#',
+        chapters: [
+          { id: 1, title: 'Prólogo: Días efímeros', filename: 'v1-c0.md' },
+          { id: 2, title: 'Humanos y demonios 1', filename: 'v1-c1.md' },
+          { id: 3, title: 'Humanos y demonios 1.1', filename: 'v1-c1-1.md' },
+//          { id: 4, title: 'Chapter 4: The Truth of Oni', filename: 'v1-c3.md' },
+//          { id: 5, title: 'Chapter 5: The Destiny of Oni', filename: 'v1-c4.md' },
+        ]
+      },
+      {
+        id: 2,
+        title: 'Volume 2',
+        coverImage: 'cover2.jpg',
+        pdfEnglish: 'https://drive.google.com/file/d/1h6ocrdxyrbDfxmdiBeVulyZ-DXP62d7_/view?usp=drivesdk',
+        pdfSpanish: '#',
+        chapters: [
+          //{ id: 1, title: 'Chapter 1: The Dawn of Samurai', filename: 'v2-c1.md' },
+          //{ id: 2, title: 'Chapter 2: The Shadow of Samurai', filename: 'v2-c2.md' },
+          //{ id: 3, title: 'Chapter 3: The Path of Samurai', filename: 'v2-c3.md' },
+          //{ id: 4, title: 'Chapter 4: The Truth of Samurai', filename: 'v2-c4.md' },
+          //{ id: 5, title: 'Chapter 5: The Destiny of Samurai', filename: 'v2-c5.md' },
+        ]
+      },
+      {
+        id: 3,
+        title: 'Volume 3',
+        coverImage: 'cover3.jpg',
+        pdfEnglish: 'https://drive.google.com/file/d/1-paOiBWbhXQcGJ3YsENY3r-6CZvEiFcR/view?usp=drivesdk',
+        pdfSpanish: '#',
+        chapters: [
+          //{ id: 1, title: 'Chapter 1: The Dawn of Spirits', filename: 'v3-c1.md' },
+          //{ id: 2, title: 'Chapter 2: The Shadow of Spirits', filename: 'v3-c2.md' },
+          //{ id: 3, title: 'Chapter 3: The Path of Spirits', filename: 'v3-c3.md' },
+          //{ id: 4, title: 'Chapter 4: The Truth of Spirits', filename: 'v3-c4.md' },
+          //{ id: 5, title: 'Chapter 5: The Destiny of Spirits', filename: 'v3-c5.md' },
+        ]
+      },
+      {
+        id: 4,
+        title: 'Volume 4',
+        coverImage: 'cover4.jpg',
+        pdfEnglish: 'https://drive.google.com/file/d/1IiEbaRadKhMBDhms_CbKm19naUwERk25/view?usp=drivesdk',
+        pdfSpanish: '#',
+        chapters: [
+          //{ id: 1, title: 'Chapter 1: The Dawn of Gods', filename: 'v4-c1.md' },
+          //{ id: 2, title: 'Chapter 2: The Shadow of Gods', filename: 'v4-c2.md' },
+          //{ id: 3, title: 'Chapter 3: The Path of Gods', filename: 'v4-c3.md' },
+          //{ id: 4, title: 'Chapter 4: The Truth of Gods', filename: 'v4-c4.md' },
+          //{ id: 5, title: 'Chapter 5: The Destiny of Gods', filename: 'v4-c5.md' },
+        ]
+      },
+      {
+        id: 5,
+        title: 'Volume 5',
+        coverImage: 'cover5.jpg',
+        pdfEnglish: 'https://drive.google.com/file/d/1dydl6UPPOQ5JNI7sB4hLw4oq3pTYwDOn/view?usp=drivesdk',
+        pdfSpanish: '#',
+        chapters: [
+          //{ id: 1, title: 'Chapter 1: The Dawn of Eternity', filename: 'v5-c1.md' },
+          //{ id: 2, title: 'Chapter 2: The Shadow of Eternity', filename: 'v5-c2.md' },
+          //{ id: 3, title: 'Chapter 3: The Path of Eternity', filename: 'v5-c3.md' },
+          //{ id: 4, title: 'Chapter 4: The Truth of Eternity', filename: 'v5-c4.md' },
+          //{ id: 5, title: 'Chapter 5: The Destiny of Eternity', filename: 'v5-c5.md' },
+        ]
+      }
+    ];
+
+    // ===== State =====
+    let currentVolume = volumes[0];
+    let currentChapter = null;
+    let settingsOpen = true;
+    let chapterSidebarOpen = true;
+
+    // ===== Initialize =====
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set initial volume selector display
+      document.getElementById('selectedVolumeImg').src = currentVolume.coverImage;
+      
+      // Set initial PDF links
+      document.getElementById('pdfEnglishLink').href = currentVolume.pdfEnglish;
+      document.getElementById('pdfSpanishLink').href = currentVolume.pdfSpanish;
+      document.getElementById('japaneseSourceLink').href = japaneseSourceUrl;
+      
+      renderVolumeDropdown();
+      renderChapterList();
+    });
+
+    // ===== Volume Dropdown =====
+    function renderVolumeDropdown() {
+      const dropdown = document.getElementById('volumeDropdown');
+      dropdown.innerHTML = volumes.map(v => `
+        <button class="volume-option ${v.id === currentVolume.id ? 'active' : ''}" onclick="selectVolume(${v.id})">
+          <img src="${v.coverImage}" alt="${v.title}">
+          <span>${v.title}</span>
+        </button>
+      `).join('');
+    }
+
+    function toggleVolumeDropdown() {
+      const btn = document.getElementById('volumeDropdownBtn');
+      const dropdown = document.getElementById('volumeDropdown');
+      btn.classList.toggle('open');
+      dropdown.classList.toggle('open');
+    }
+
+    function selectVolume(volumeId) {
+      currentVolume = volumes.find(v => v.id === volumeId);
+      
+      // Update volume selector display (title and thumbnail)
+      document.getElementById('selectedVolumeTitle').textContent = currentVolume.title;
+      document.getElementById('selectedVolumeImg').src = currentVolume.coverImage;
+      
+      // Update PDF links for the selected volume
+      document.getElementById('pdfEnglishLink').href = currentVolume.pdfEnglish;
+      document.getElementById('pdfSpanishLink').href = currentVolume.pdfSpanish;
+      
+      // Update chapter sidebar
+      document.getElementById('chapterSidebarVolume').textContent = currentVolume.title;
+      renderChapterList();
+      
+      // If a chapter is selected, try to keep same chapter number in new volume
+      if (currentChapter) {
+        const newChapter = currentVolume.chapters.find(c => c.id === currentChapter.id);
+        if (newChapter) {
+          loadChapter(newChapter);
+        } else {
+          currentChapter = null;
+          document.getElementById('currentChapterTitle').textContent = 'Select a chapter from the menu';
+          document.getElementById('markdownContent').innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 3rem;">Select a chapter to start reading.</p>';
+        }
+      }
+      
+      toggleVolumeDropdown();
+    }
+
+    // ===== Reader =====
+    function openReader() {
+      document.getElementById('readerSection').classList.add('active');
+      document.getElementById('readerContent').classList.add('sidebar-open');
+      document.getElementById('settingsSidebar').classList.add('open');
+      document.getElementById('chapterSidebar').classList.add('open');
+      document.getElementById('floatingButtons').style.display = 'none';
+      
+      // Scroll to reader
+      document.getElementById('readerSection').scrollIntoView({ behavior: 'smooth' });
+      
+      // Load first chapter if none selected
+      if (!currentChapter) {
+        loadChapter(currentVolume.chapters[0]);
+      }
+    }
+
+    function renderChapterList() {
+      const list = document.getElementById('chapterList');
+      list.innerHTML = currentVolume.chapters.map(c => `
+        <button class="chapter-btn ${currentChapter && currentChapter.id === c.id ? 'active' : ''}" onclick="loadChapterById(${c.id})">
+          ${c.title}
+        </button>
+      `).join('');
+    }
+
+    function loadChapterById(chapterId) {
+      const chapter = currentVolume.chapters.find(c => c.id === chapterId);
+      loadChapter(chapter);
+    }
+
+    async function loadChapter(chapter) {
+      currentChapter = chapter;
+      
+      // Update UI
+      document.getElementById('currentChapterTitle').textContent = `${currentVolume.title} - ${chapter.title}`;
+      renderChapterList();
+      
+      // Fetch and render markdown
+      try {
+        const response = await fetch(`chapters/${chapter.filename}`);
+        const markdown = await response.text();
+        document.getElementById('markdownContent').innerHTML = marked.parse(markdown);
+        applyFontSettings();
+      } catch (error) {
+        document.getElementById('markdownContent').innerHTML = '<p style="color: #ff6b6b; text-align: center;">Failed to load chapter.</p>';
+      }
+    }
+
+    // ===== Sidebars =====
+    function toggleSettingsSidebar() {
+      settingsOpen = !settingsOpen;
+      const sidebar = document.getElementById('settingsSidebar');
+      const content = document.getElementById('readerContent');
+      const floating = document.getElementById('floatingButtons');
+      
+      sidebar.classList.toggle('open', settingsOpen);
+      
+      // Only adjust margin if chapter sidebar is also closed
+      if (!chapterSidebarOpen && !settingsOpen) {
+        content.classList.remove('sidebar-open');
+        floating.style.display = 'flex';
+      } else {
+        content.classList.add('sidebar-open');
+        floating.style.display = 'none';
+      }
+    }
+
+    function toggleChapterSidebar() {
+      chapterSidebarOpen = !chapterSidebarOpen;
+      const sidebar = document.getElementById('chapterSidebar');
+      const content = document.getElementById('readerContent');
+      const floating = document.getElementById('floatingButtons');
+      
+      sidebar.classList.toggle('open', chapterSidebarOpen);
+      
+      // Only adjust margin if settings sidebar is also closed
+      if (!settingsOpen && !chapterSidebarOpen) {
+        content.classList.remove('sidebar-open');
+        floating.style.display = 'flex';
+      } else {
+        content.classList.add('sidebar-open');
+        floating.style.display = 'none';
+      }
+    }
+
+    // ===== Theme =====
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      document.getElementById('darkEgg').classList.toggle('filled', theme === 'dark');
+      document.getElementById('lightEgg').classList.toggle('filled', theme === 'light');
+    }
+
+    // ===== Font Settings =====
+    function updateFontSize(size) {
+      document.getElementById('fontSizeValue').textContent = size + 'px';
+      applyFontSettings();
+    }
+
+    function updateFontFamily(family) {
+      applyFontSettings();
+    }
+
+    function applyFontSettings() {
+      const size = document.getElementById('fontSizeSlider').value;
+      const family = document.getElementById('fontFamilySelect').value;
+      const content = document.getElementById('markdownContent');
+      
+      content.style.fontSize = size + 'px';
+      content.style.fontFamily = family;
+    }
+
+    // ===== Scroll to Top =====
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== Close dropdown when clicking outside =====
+    document.addEventListener('click', (e) => {
+      const dropdown = document.getElementById('volumeDropdown');
+      const btn = document.getElementById('volumeDropdownBtn');
+      
+      if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+        btn.classList.remove('open');
+        dropdown.classList.remove('open');
+      }
+    });
+  </script>
+  Telurines._.xd 
+</body>
 </html>
