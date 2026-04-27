@@ -1,6 +1,6 @@
 # DESCARGAR LA APP
 
-<a href="index.html">VOLVER</a>
+<a href="es.hsjp.html">VOLVER</a>
 
 Bien aquí presentaré distintos métodos de descarga, lo más sencillo sería simplemente elegir alguno de los enlaces aquí proporcionados, sin embargo, quizá algunos prefieran hacerlo de forma más manual o controlada.
 

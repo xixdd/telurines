@@ -1,66 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://telurines.pages.dev/huashijiep/" />
-
-  <title>Sobre Hua Shijie Pro 画世界</title>
-  <meta name="description" content=" Hua Shijie Pro o 画世界Pro es una de las mejores apps de dibujo moviles, se trata de una app china optimiazada para dibujo en dispositivos Android, mucho mas fluida que ibis paint. Huashijie, HUASHIJIEPRO, hua shi jie pro, huashijie pro hua shijie pro descargar" />
-  <link rel="stylesheet" href="css/stylehua.css">
-  <link rel="icon" href="images/logo.jpg" type: "icon/x-image">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画世界Pro - Hua Shijie Pro</title>
+    <link rel="stylesheet" href="stylesen.css">
+    <meta name="description" content="Como usar 画世界Pro, (Hua Shijie Pro) la popular aplicación de dibujo china, con tutoriales paso a paso. Hua Shijie Pro, Huashijie" />
 </head>
-
 <body>
-  <header>
-    <img src="images/logo.jpg" id="img1">
-    <h1>画世界 Pro</h1>
-    <img src="../img/teluri.png" id="img2">
-  </header>
-  <a href="../index.html">←Volver</a>
-  <section class="destacados">
-    <h2> Tutorial básico:</h2>
-    <iframe width="99%" height="300px" src="https://www.youtube.com/embed/Uxqh2SZx9Ww?si=AXDX0mjsUUztgtfg&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </section>
-  
-    <main>
-      <h2>Hua Shijie Pro</h2 id="titl">
-      <hr>
-      <p>Hua Shijie Pro es una app de dibujo especialmente optimizada para teléfonos y tablets.</p>
-      <p>Entre sus características mas destacadas, además de ser bastante fluida en dispositivos no tan recientes, incluye también mas de 100 pinceles y una gran cantidad de ajustes para estos, incluso puedes importar pinceles de Photoshop en formato ABR.</p>
-      <p> Además tiene distintos filtros que a diferencia de itras apps, son completamente gratuitos, tales como mapa de gradientes y curva de tonos, entre otros.</p><br>
-      <p>Es importante aclarar que en esta app no es posible iniciar sesión, subir a la nube tus proyectos o crear pinceles si no tienes un número de teléfono oriental.</p>
+    <!--(Top Right)-->
+    <a href="https://telurines.pages.dev" class="egg-link">
+        <img src="/assets/iconx.png" alt="Egg" class="egg-image">
+    </a>
+
+    <!-- Left Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-content">
+            <h2 class="sidebar-title">Tutoriales</h2>
+            <nav class="sidebar-nav">
+                <a href="./readerhsp.html?file=huanci.md" class="sidebar-link">DO READ THIS</a>
+                <a href="readerhsp.html?file=descarga.md" class="sidebar-link">Descarga</a>
+                <a href="readerhsp.html?file=inicio.md" class="sidebar-link">Inicio de la app</a>
+                <a href="./readerhsp.html?file=save.md" class="sidebar-link">Guardar</a>
+                <a href="./readerhsp.html?file=exportar.md" class="sidebar-link">Exportar Proyectos</a>
+                <a href="./readerhsp.html?file=brushf.md" class="sidebar-link">Grupos de pinceles</a>
+                <a href="./readerhsp.html?file=movebr.md" class="sidebar-link">Pinceles en movimiento</a>
+                <a href="./readerhsp.html?file=filtros.md" class="sidebar-link">Lista de filtros</a>
+            </nav>
+            <p class="sidebar-footer">Xi & telurines._.xd</p>
+        </div>
+    </div>
+
+    <!-- Overlay for blur effect -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Left Arrow Button -->
+    <button class="arrow-btn left-arrow" id="leftArrow" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="app-info">
+                <img src="images/logo.jpg" alt="App Icon" class="app-icon">
+                <div class="app-text">
+                    <h1 class="app-name-cn">画世界Pro</h1>
+                    <h2 class="app-name-en">HUA SHIJIE PRO</h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- Info Box Section -->
+        <section class="info-section">
+            <div class="info-box" id="infoBox">
+                <div class="info-content">
+                    <p class="info-text">Hua Shijie Pro es una aplicación de dibujo hecha y optimizada para móviles, Android, específicamente.<br> Por favor da click en las flechas para saber más.</p>
+                </div>
+                <button class="expand-arrow down-arrow" id="downArrow" aria-label="Expand content">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <!-- Expanded content that shows when down arrow is clicked -->
+            <div class="expanded-content" id="expandedContent">
+                <div class="expanded-inner">
+                    <p>Hua Shijie Pro es una aplicación de dibujo diseñada y optimizada para dispositivos móviles, específicamente Android.Toca las flechas para obtener más información.</p>
+                    <p>  Entre sus características más destacadas, además de funcionar sin problemas en dispositivos antiguos, también incluye más de 100 pinceles y una amplia gama de ajustes para ellos; incluso permite importar pinceles de Photoshop en formato ABR.
+                    </p>
+También ofrece varios filtros que, a diferencia de otras aplicaciones, son completamente gratuitos, como mapas de degradado y curvas de tono, entre otros.</p>
+                    <p>Por favor revisa<a href="readerhsp.html?file=huanci.md">este link</a> para más detalles.</p>
+                    <p>/!\IMPORTANTE/!\</p>
+                    <p>Es importante destacar que la aplicación está completamente en chino; toda la interfaz y todas las herramientas están en chino, y no hay opciones de idioma, ni siquiera en inglés.</p>
+                    <p> Por eso estoy haciendo tutoriales y listas con traducciones para cada botón, opción y herramienta. Ten en cuenta, sin embargo, que no cuento con ayuda, así que puede que no sea tan rápido como me gustaría.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                  <iframe width="99%" height="300px" src="https://www.youtube.com/embed/Uxqh2SZx9Ww?si=AXDX0mjsUUztgtfg&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download-section">
+            <a href="https://3g.lenovomm.com/redsea/net.huanci.hsjpro?rank_code=search_1_Pro&num=1" class="download-btn">DESCARGA DIRECTA</a>
+        </section>
     </main>
-  <div class="warning">
-      <h2>
-        IMPORTANTE /!\
-      </h2>
-      <p>Es necesario recalcar que la aplicación está totalmente en chino, toda la interfaz y herramientas están en chino y no hay ajustes de idioma, ni siquiera inglés.</p>
-      <p> Por eso mismo, haré algunos tutoriales y listas con traducción de cada boton, opción y herramienta. Aunque tengan en cuenta que nadie me ayuda así que tomará un poco de tiempo.</p>
-  </div>
-  <section>
-    <a href="download.html"> ▶Descargar</a>
-    <a href="howto.html">▶Tutoriales y traducciones</a>
-  </section>
-  <script>
-    const userLanguage = navigator.language || navigator.userLanguage;
-    const hasSeenAlert = localStorage.getItem('alertShown');
 
-    if (userLanguage.startsWith('es') && !hasSeenAlert) {
-    alert("Actualizo la página cada que puedo, se que ahora luce fea pero mejorará con el tiempo.);
-    localStorage.setItem('alertShown', 'true');
-    }
-  </script>
-<div id="show">
-  <h3>Aquí una muestra de los resultados de la app</h3>
-  <hr><br>
-  <img src="images/show/1.webp" class="xd" alt="by xi">
-</div>
 
+    <script src="scripten.js"></script>
 </body>
-
 </html>
