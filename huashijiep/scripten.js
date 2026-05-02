@@ -57,16 +57,25 @@ downArrow.addEventListener('click', toggleExpandedContent);
 // Handle sidebar link clicks
 const sidebarLinks = document.querySelectorAll('.sidebar-link');
 sidebarLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
+    link.addEventListener('click', () => {
+        sidebarMenu.style.transition = 'none';
+        overlay.style.transition = 'none';
+        mainContent.style.transition = 'none';
         
-        // Close sidebar first
-        toggleSidebar();
+        sidebarMenu.classList.remove('open');
+        overlay.classList.remove('active');
+        mainContent.classList.remove('blurred');
+        leftArrow.classList.remove('active');
+        isSidebarOpen = false;
         
-        // Allow navigation to happen naturally
-        console.log('Navigating to:', href);
+        setTimeout(() => {
+            sidebarMenu.style.transition = '';
+            overlay.style.transition = '';
+            mainContent.style.transition = '';
+        }, 50);
     });
 });
+
 
 
 // Keyboard navigation
@@ -136,5 +145,3 @@ function handleSwipe() {
 }
 
 console.log('画世界Pro - Website loaded successfully!');
-
-alert("/!\\ Remember this please, it's very important:\n\n取消=Cancel  确定=Continue");
