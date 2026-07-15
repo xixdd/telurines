@@ -1,160 +1,93 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telurines</title>
-    <link rel="icon" type="image/png" href="assets/iconx.png">
-    <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+    }
+    .cont {
+      max-width: 800px;
+      height: 100dvh;
+      overflow: hidden;
+      background: #FAF9C8;
+      position: relative;
+    }
+    .head {
+      width: 100%;
+      object-fit: contain;
+      display: block;
+      border-bottom: 10px solid orange;
+    }
+    .cont .texto {
+      position: absolute;
+      top: 12%;
+      right: 33%;
+      z-index: 100;
+      display: block;
+      
+    }
+    main {
+      padding: 7%;
+    }
+    .egg {
+      max-width: 100%;
+      object-fit: contain;
+      position: absolute;
+      bottom: 0;
+    }
+    .xdi {
+      font-size: 2rem;
+    }
+    .black-ops-one-regular {
+      font-family: "Black Ops One", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .texto {
+        font-family: Black Ops One;
+        font-size: 3.5em;
+        padding: 0;
+        margin: 0;
+        color: red;
+        animation: zoom 2s ease-in-out infinite;
+    }
+    @keyframes zoom {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+    }
+    .wti {
+        padding: 7%;
+    }
+
+  </style>
+  <title>Telurines</title>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <img src="assets/icon.png" alt="Telurines" class="logo-icon">
-                <h1>Telurines<span class="plus">._.</span> xd</h1>
-            </div>
-            <div class="site-title">
-                <a href="xi.html">陈熙焱</a>
-            </div>
-        </header>
-
-        <!-- Navigation -->
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="noticias.html">News</a></li>
-                <li><a href="xi.html">Support</a></li>
-            </ul>
-        </nav>
-        <section class="hero">
-            <div class="carousel" id="carousel">
-                <button class="carousel-arrow carousel-arrow-left" id="arrowLeft" aria-label="Previous slide">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide">
-                        <a href="huashijiep/index.html"><img src="assets/asset_1.png" alt="Como usar Hua Shijie Pro"></a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="https://drive.google.com/file/d/1-0WZnDNluAWvV-emcv-Dom0w1OrLjniD/view?usp=drivesdk"><img src="assets/htdm.png" alt="manga book"></a>
-                    </div>
-                </div>
-                <button class="carousel-arrow carousel-arrow-right" id="arrowRight" aria-label="Next slide">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
-            </div>
-        </section>
-
-        <!-- Main Content -->
-        <main>
-            <h1>Telurines</h1>
-            <p>Telurines es un sitio web que hice para reunir distintas cosas, entre ellas recursos para arte digital, siendo principalmente la app HuaShijie Pro. </p>
-            <p>Además de eso, también mis propios proyectos, traducciones que hago así como mis propias novelas.</p>
-        </main>
-        <div class="main-content">
-            <!-- Topics Section -->
-            <section class="topics">
-                <h2 class="topics-title">Presentado</h2>
-                <ul class="topics-list">
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="./huashijiep/index.html">→Guía de uso y descarga de Hua shijie Pro </a>
-                    </li>
-                    <!--<li>
-                        <span class="diamond">◆</span>
-                        <a href="#">→Libros de dibujo</a>
-                    </li>-->
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="leer">→Libros y traducciones</a>
-                    </li>
-                    <!--<li>
-                        <span class="diamond">◆</span>
-                        <a href="#">『咎狗の血 True Blood Portable』好評発売中！</a>
-                        <span class="date">[12.23]</span>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">TVアニメ『咎狗の血』のサントラ「Light My Fire」本日発売！</a>
-                        <span class="date">[12.22]</span>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">CHiRAL MOBILEにて新企画「World's end Nightmare」配信スタート！</a>
-                        <span class="date">[12.16]</span>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">「sweet pool」コミックス第1巻発売中！</a>
-                        <span class="date">[11.10]</span>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">「CHAYAMACHI CHiRAL WORKS」発売中！</a>
-                        <span class="date">[10.01]</span>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">ブシロードTCG「アリス・クロス」に「Lamento -BEYOND THE VOID-」参戦！</a>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">「コミックビーズログ キュン！」『咎狗の血』(漫画：茶屋町勝呂)連載中！</a>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">「BE・BOY GOLD」「sweet pool」(漫画：車折まゆ)連載中！</a>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">『咎狗の血True Blood』（漫画：森田柚花）コミックス発売中！</a>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">WEBサポートへのお問い合わせについて</a>
-                    </li>
-                    <li>
-                        <span class="diamond">◆</span>
-                        <a href="#">ニトロプラス キラル製品のサポート情報はこちらをご覧ください</a>
-                    </li>-->
-                </ul>
-            </section>
-
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="sidebar-banner">
-                    <a href="https://youtu.be/Uxqh2SZx9Ww?si=yakP5KjJmKp-1DLX">
-                        <img src="assets/asset_2.png" alt="tutorial de HuaShijie Pro">
-                    </a>
-                </div>
-               <!-- <div class="sidebar-banner">
-                    <a href="ad.html">
-                        <img src="assets/asset_3.png" >
-                    </a>
-                </div> -->
-                <!--<div class="sidebar-banner">
-                    <a href="#">
-                        <img src="assets/asset_6.png" alt="ikmm">
-                    </a>
-                </div>-->
-            </aside>
-        </div>
-
-        <!-- Footer Banner -->
-        <div class="footer-banner">
-            <div class="facebook">
-                <a href="https://www.facebook.com/share/18S9DrNCJw/">Facebook</a>
-            </div>
-        </div>
-
-        <!-- Footer -->
+  <div class="cont">
+    <img src="Gif.gif" alt="head" class="head">
+    <p class="texto">2026</p>
+    <main><h1>So Telurines</h1>
+    <p>Is just a place where i save and put together a variety of stuff. The name comes the Indonesian word for egg (telur,) and one Spanish plural male diminutive (-ines)... If you even care.</p></main><hr>
+    <div class="wti">
+      <h2>What there is</h2>
+      <a href="/huashijiep/index.html" class="xdi">¬画世界Pro ¦ HuaShijiePro (EN/ES)</a><br>
     </div>
-
-    <script src="script.js"></script>
+    <div><h3>And also</h3></div>
+    <hr />
+    <p>nothing</p>
+    <img src="Egg.jpg" alt="the water thank" class="egg"/>
+  </div>
 </body>
+
 </html>
