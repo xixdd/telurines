@@ -4,62 +4,330 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>画世界Pro - Hua Shijie Pro</title>
-    <link rel="stylesheet" href="stylesen.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico"> 
     <meta name="description" content="Learn how to use 画世界Pro, the popular Chinese drawing app, with easy step-by-step tutorials. Perfect for beginners looking to create digital art." />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #262728 url('images/bg.webp') repeat center top;
+            background-size: 100vw 50vw;
+            min-height: 100vh;
+}
+
+
+        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #0173F4 0%, #0a3a75 35%, #262728 65%, #262728 100%);
+            min-height: 100dvh;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative÷
+            height: 100dvh;
+        }
+
+        /* ── Top Banner ── */
+        .top-banner {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            line-height: 0;
+            margin-bottom: 12px;
+        }
+
+        .top-banner img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 3px;
+        }
+
+        /* ═══════════════════════════════════════
+           METALLIC PANEL SYSTEM
+           ═══════════════════════════════════════ */
+
+        .panel {
+            background: #e8e8e8;
+            border: 1px solid #a0a0a0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            width: 75%;
+            box-shadow:
+                0 0 0 1px #555,
+                0 3px 14px rgba(0,0,0,0.55),
+                0 0 28px rgba(0,0,0,0.35);
+        }
+
+        .panel-header {
+            background: linear-gradient(
+                to bottom,
+                #e8e8e8 0%,
+                #ffffff 8%,
+                #c8c8c8 25%,
+                #a0a0a0 45%,
+                #b8b8b8 55%,
+                #808080 75%,
+                #606060 90%,
+                #404040 100%
+            );
+            color: #1a1a1a;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+            position: relative;
+        }
+
+        .panel-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.85);
+        }
+
+        .panel-body {
+            padding: 20px;
+            background: #e8e8e8;
+        }
+
+        .panel-body p {
+            line-height: 1.65;
+            font-size: 0.92rem;
+            color: #2a2a2a;
+            margin: 0 0 12px 0;
+        }
+
+        .panel-body p:last-child { margin-bottom: 0; }
+        .panel-body a { color: #0173F4; font-weight: 600; }
+
+        /* Video panel */
+        .panel-video .panel-body { padding: 0; }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Expandable */
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease, padding 0.45s ease;
+        }
+
+        .expanded-content.open {
+            max-height: 700px;
+            padding-top: 16px;
+        }
+
+        .expanded-inner {
+            background: rgba(0,0,0,0.06);
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: #333;
+        }
+
+        .expanded-inner p { margin: 0 0 10px 0; }
+        .expanded-inner p:last-child { margin-bottom: 0; }
+
+        .expand-arrow {
+            display: block;
+            margin: 16px auto 0;
+            width: 34px;
+            height: 34px;
+            border: 1px solid #999;
+            background: linear-gradient(to bottom, #ddd, #bbb);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .expand-arrow:hover { transform: scale(1.06); }
+
+        .expand-arrow svg {
+            width: 16px;
+            height: 16px;
+            color: #444;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-arrow.open svg { transform: rotate(180deg); }
+
+
+
+        /* Hero image */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 0 36px;
+            clear: both;
+        }
+
+        .hero-image {
+            max-width: 320px;
+            width: 80%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+        }
+        
+        .btn-header {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            padding: 14px 24px;
+            margin: 0 auto 12px;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 50%, #0d0d0d 100%);
+            border-radius: 50px;
+            overflow: hidden;
+            font-family: inherit;
+        }
+            
+            .btn-header::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(180deg, 
+                rgba(200,200,200,0.5) 0%, 
+                transparent 35%, 
+                transparent 65%, 
+                rgba(200,200,200,0.5) 100%);
+              pointer-events: none;
+            }
+            
+            .btn-header span {
+              position: relative;
+              z-index: 1;
+              color: #e6c35c;
+              font-size: 20px;
+              font-weight: bold;
+              letter-spacing: 1px;
+              text-shadow:
+                0 1px 0 rgba(0,0,0,0.8),
+                0 0 6px rgba(230,195,92,0.4);
+            }
+            
+            .btn-header:hover {
+              filter: brightness(1.1);
+            }
+            
+            .btn-header:active {
+              filter: brightness(0.85);
+              transform: translateY(1px);
+            }
+            
+                /* ── Footer ── */
+        .site-footer {
+            text-align: center;
+            padding: 24px 16px 32px;
+            background: transparent;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand img {
+            width: 16px;
+            height: 16px;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .footer-brand span {
+            font-weight: 700;
+            color: #d0d0d0;
+            font-size: 0.85rem;
+        }
+
+        .site-footer a {
+            color: #d0d0d0;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
+ 
+
+    </style>
 </head>
 <body>
-    <!--(Top Right)-->
-    <a href="https://telurines.pages.dev" class="egg-link">
-        <img src="/assets/iconx.png" alt="Egg" class="egg-image">
-    </a>
 
-    <!-- Left Sidebar Menu -->
-    <div class="sidebar-menu" id="sidebarMenu">
-        <div class="sidebar-content">
-            <h2 class="sidebar-title">Tutorials</h2>
-            <nav class="sidebar-nav">
-                <a href="./readerhsp.html?file=huanci.md" class="sidebar-link">DO READ THIS</a>
-                <a href="./readerhsp.html?file=down_en.md" class="sidebar-link">Download</a>
-                <a href="./readerhsp.html?file=home.md" class="sidebar-link">Starting</a>
-                <a href="./readerhsp.html?file=saving.md" class="sidebar-link">Saving</a>
-                <a href="./readerhsp.html?file=export.md" class="sidebar-link">Exporting Projects</a>
-                <a href="./readerhsp.html?file=foldbrush.md" class="sidebar-link">Brush Folders</a>
-            </nav>
-            <p class="sidebar-footer">Xi & telurines._.xd</p>
-        </div>
-    </div>
+    <div class="container">
 
-    <!-- Overlay for blur effect -->
-    <div class="overlay" id="overlay"></div>
+        <!-- Top Banner -->
+        <a href="../index.html" class="top-banner">
+            <img src="images/top-banner.webp" alt="Top banner">
+        </a>
 
-    <!-- Left Arrow Button -->
-    <button class="arrow-btn left-arrow" id="leftArrow" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-    </button>
+        <!-- Hero / Logo Section -->
+        <section class="hero-section">
+            <img src="images/hero.png" alt="画世界Pro" class="hero-image">
+        </section>
 
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="app-info">
-                <img src="images/logo.jpg" alt="App Icon" class="app-icon">
-                <div class="app-text">
-                    <h1 class="app-name-cn">画世界Pro</h1>
-                    <h2 class="app-name-en">HUA SHIJIE PRO</h2>
+        <!-- Overview -->
+        <div class="panel">
+            <div class="panel-header">Overview</div>
+            <div class="panel-body">
+                <p>Hua Shijie Pro is a drawing app made and optimized for mobile devices, Android, specifically.<br>Please tap the arrows for more.</p>
+
+                <div class="expanded-content" id="expandedContent">
+                    <div class="expanded-inner">
+                        <p>Among its most notable features, in addition to running quite smoothly on older devices, it also includes over 100 brushes and a wide range of settings for them; you can even import Photoshop brushes in ABR format.</p>
+                        <p>It also offers various filters that, unlike other apps, are completely free, such as gradient maps and tone curves, among others.</p>
+                        <p>Please check <a href="readerhsp.html?file=huanci.md">this link</a> for more information of the app.</p>
+                        <p><strong>/!\ IMPORTANT /!\</strong></p>
+                        <p>It's important to note that the app is entirely in Chinese; the entire interface and all tools are in Chinese, and there are no language settings—not even English.</p>
+                        <p>For that reason, I'm creating some tutorials and lists with translations for every button, option, and tool. Keep in mind, though, that I don't have any help, so it might not be as quick as I would wish.</p>
+                    </div>
                 </div>
-            </div>
-            <button class="lang-btn"><a href="es.hsjp.html">ESPAÑOL</a></button>
-        </header>
 
-        <!-- Info Box Section -->
-        <section class="info-section">
-            <div class="info-box" id="infoBox">
-                <div class="info-content">
-                    <p class="info-text">Hua Shijie Pro is a drawing app made and optimized for mobile devices, Android, specifically.<br> Please tap the arrows for more.</p>
-                </div>
                 <button class="expand-arrow down-arrow" id="downArrow" aria-label="Expand content">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -67,33 +335,46 @@
                     </svg>
                 </button>
             </div>
-            <!-- Expanded content that shows when down arrow is clicked -->
-            <div class="expanded-content" id="expandedContent">
-                <div class="expanded-inner">
-                    <p>Among its most notable features, in addition to running quite smoothly on older devices, it also includes over 100 brushes and a wide range of settings for them; you can even import Photoshop brushes in ABR format.</p>
-                    <p> It also offers various filters that, unlike other apps, are completely free, such as gradient maps and tone curves, among others.</p>
-                    <p>Please check <a href="readerhsp.html?file=huanci.md">this link</a> for more information of the app.</p>
-                    <p>/!\IMPORTANT/!\</p>
-                    <p>It’s important to note that the app is entirely in Chinese; the entire interface and all tools are in Chinese, and there are no language settings—not even English.</p>
-                    <p> For that reason, I’m creating some tutorials and lists with translations for every button, option, and tool. Keep in mind, though, that I don’t have any help, so it might not be as quick as I would wish.</p>
+        </div>
+
+        <!-- Video -->
+        <div class="panel panel-video">
+            <div class="panel-header">Video</div>
+            <div class="panel-body">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/34WyNLX0Kf4?si=HBnW7F35on7b7Qp2" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Video Section -->
-        <section class="video-section">
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/34WyNLX0Kf4?si=HBnW7F35on7b7Qp2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br>
+        <a href="tutorials.html" class="btn-header"><span>Tutorials</span></a>
+        <a href="faqhuashi.html" class="btn-header"><span>FAQ</span></a>
+        <a href="https://3g.lenovomm.com/redsea/net.huanci.hsjpro?rank_code=search_1_%E7%94%BB%E4%B8%96%E7%95%8CPro&num=1" class="btn-header"><span>Download</span></a>
+        <br><br>
+                <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-brand">
+                <img src="../favicon.ico" alt="">
+                <span>Telurines._.xd</span>
             </div>
-        </section>
+            <p>All this content and information was made or gathered by me.<br>
+            If you want to add or inquire anything, just <a href="mailto:7_7xi@proton.me">contact me</a>.<br>
+            In case you'd like to support me and help me improve the site and content,<br>
+            please consider donating or commissioning me on my <a href="https://ko-fi.com/xixdd">Kofi</a>.</p>
+        </footer>
 
-        <!-- Download Section -->
-        <section class="download-section">
-            <a href="https://3g.lenovomm.com/redsea/net.huanci.hsjpro?rank_code=search_1_Pro&num=1" class="download-btn">DIRECT DOWNLOAD</a>
-        </section>
-    </main>
+    </div>
 
+    <script>
+        const downArrow = document.getElementById('downArrow');
+        const expandedContent = document.getElementById('expandedContent');
 
-    <script src="scripten.js"></script>
+        downArrow.addEventListener('click', () => {
+            expandedContent.classList.toggle('open');
+            downArrow.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
+ 

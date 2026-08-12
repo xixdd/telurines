@@ -1,6 +1,3 @@
-<a href="index.html">BACK</a>
-___
-
 ## Getting started
 
 This is pretty simple.

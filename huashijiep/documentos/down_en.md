@@ -1,7 +1,5 @@
 # DOWNLOAD THE APP
 
-<a href="index.html">GO BACK</a>
-
 Here I will present different download methods. The simplest would be to just pick one of the links provided here; however, some may prefer to do it in a more manual or controlled way.
 
 ### Methods

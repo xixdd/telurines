@@ -1,15 +1,6 @@
-
-
 # The bad parts
 
 ### Yeah, it can't be that perfect, unfortunately there are some points taht might kill it for you, let me explain why.
-
-___
-
-[Go back](index.html)
-
-___
-
 
 ## 90% of the content is free.
 

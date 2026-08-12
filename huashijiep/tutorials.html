@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials - 画世界Pro</title>
+    <meta name="description" content="Step-by-step tutorials for 画世界Pro (Hua Shijie Pro), the popular Chinese drawing app for Android." />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #262728 url('images/bg.webp') repeat center top;
+            background-size: 100vw 50vw;
+            min-height: 100vh;
+        }
+
+        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #0173F4 0%, #0a3a75 35%, #262728 65%, #262728 100%);
+            min-height: 100dvh;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        /* ── Top Banner ── */
+        .top-banner {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            line-height: 0;
+        }
+
+        .top-banner img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Hero ── */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 0 32px;
+        }
+
+        .hero-image {
+            max-width: 320px;
+            width: 80%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+        }
+
+        /* ═══════════════════════════════════════
+           METALLIC PANEL
+           ═══════════════════════════════════════ */
+
+        .panel {
+            background: #e8e8e8;
+            border: 1px solid #a0a0a0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            width: 85%;
+            box-shadow:
+                0 0 0 1px #555,
+                0 3px 14px rgba(0,0,0,0.55),
+                0 0 28px rgba(0,0,0,0.35);
+        }
+
+        .panel-header {
+            background: linear-gradient(
+                to bottom,
+                #e8e8e8 0%,
+                #ffffff 8%,
+                #c8c8c8 25%,
+                #a0a0a0 45%,
+                #b8b8b8 55%,
+                #808080 75%,
+                #606060 90%,
+                #404040 100%
+            );
+            color: #1a1a1a;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+            position: relative;
+        }
+
+        .panel-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.85);
+        }
+
+        .panel-body {
+            padding: 0;
+            background: #e8e8e8;
+        }
+
+        /* ═══════════════════════════════════════
+           TUTORIAL ITEMS — brighter metallic, touching
+           ═══════════════════════════════════════ */
+
+        .tutorial-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            background: linear-gradient(
+                to bottom,
+                #ffffff 0%,
+                #f5f5f5 10%,
+                #e8e8e8 30%,
+                #d8d8d8 50%,
+                #e0e0e0 65%,
+                #c8c8c8 80%,
+                #b0b0b0 92%,
+                #a0a0a0 100%
+            );
+            border: 1px solid #bbb;
+            border-bottom: none;
+            position: relative;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .tutorial-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .tutorial-item:first-child {
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tutorial-item:last-child {
+            border-bottom: 1px solid #bbb;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #222;
+            line-height: 1.3;
+        }
+
+        /* ── Blue Button ── */
+        .item-btn {
+            display: inline-block;
+            padding: 6px 18px;
+            background: linear-gradient(
+                to bottom,
+                #2a8fff 0%,
+                #0173F4 40%,
+                #015bb5 100%
+            );
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            border: 1px solid #014a8f;
+            box-shadow:
+                0 0 0 1px #013a70,
+                0 2px 5px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.25);
+            text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.1s ease;
+        }
+
+        .item-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .item-btn:hover {
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 0 1px #013a70,
+                0 3px 8px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+
+        .item-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ── NEW Badge ── */
+        .new-badge {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            background: linear-gradient(to bottom, #ff4d4d, #cc0000);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transform: rotate(-10deg);
+            z-index: 2;
+            border: 1px solid #990000;
+        }
+
+        /* ═══════════════════════════════════════
+           BOTTOM BUTTONS
+           ═══════════════════════════════════════ */
+        .btn-header {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            padding: 14px 24px;
+            margin: 0 auto 12px;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 50%, #0d0d0d 100%);
+            border-radius: 50px;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .btn-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(200,200,200,0.5) 0%,
+                transparent 35%,
+                transparent 65%,
+                rgba(200,200,200,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .btn-header span {
+            position: relative;
+            z-index: 1;
+            color: #e6c35c;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow:
+                0 1px 0 rgba(0,0,0,0.8),
+                0 0 6px rgba(230,195,92,0.4);
+        }
+
+        .btn-header:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-header:active {
+            filter: brightness(0.85);
+            transform: translateY(1px);
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            text-align: center;
+            padding: 24px 16px 32px;
+            background: transparent;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand img {
+            width: 16px;
+            height: 16px;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .footer-brand span {
+            font-weight: 700;
+            color: #d0d0d0;
+            font-size: 0.85rem;
+        }
+
+        .site-footer a {
+            color: #d0d0d0;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Top Banner -->
+        <a href="../index.html" class="top-banner">
+            <img src="images/top-banner.webp" alt="Top banner">
+        </a>
+
+        <!-- Hero -->
+        <div class="hero-section">
+            <img src="images/hero.png" alt="画世界Pro" class="hero-image">
+        </div>
+
+        <!-- Tutorials Panel -->
+        <div class="panel">
+            <div class="panel-header">Tutorials</div>
+            <div class="panel-body">
+
+                <!--
+                ════════════════════════════════════════════════════════
+                HOW TO USE THE NEW BADGE:
+                ────────────────────────────────────────────────────────
+                To mark any item as NEW, paste this line as the FIRST
+                child inside that .tutorial-item div:
+                    <span class="new-badge">NEW!</span>
+                Only put it on ONE item at a time — the newest one.
+                When you add a newer item, move the span to that one.
+                ════════════════════════════════════════════════════════
+                -->
+
+                <div class="tutorial-item">
+                    <span class="item-name">DO READ THIS</span>
+                    <a href="./readerhsp.html?file=huanci.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Download</span>
+                    <a href="./readerhsp.html?file=down_en.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Starting</span>
+                    <a href="./readerhsp.html?file=home.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Saving</span>
+                    <a href="./readerhsp.html?file=saving.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Exporting Projects</span>
+                    <a href="./readerhsp.html?file=export.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Brush Folders</span>
+                    <a href="./readerhsp.html?file=foldbrush.md" class="item-btn">Open</a>
+                </div>
+
+                <div class="tutorial-item">
+                    <span class="item-name">Layers & Blending</span>
+                    <a href="./readerhsp.html?file=layers.md" class="item-btn">Open</a>
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+        <a href="faq.html" class="btn-header"><span>FAQ</span></a>
+        <a href="index.html" class="btn-header"><span>Overview</span></a>
+        <a href="https://3g.lenovomm.com/redsea/net.huanci.hsjpro?rank_code=search_1_%E7%94%BB%E4%B8%96%E7%95%8CPro&num=1" class="btn-header"><span>Download</span></a>
+        <br><br>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-brand">
+                <img src="../favicon.ico" alt="">
+                <span>Telurines._.xd</span>
+            </div>
+            <p>All this content and information was made or gathered by me.<br>
+            If you want to add or inquire anything, just <a href="mailto:7_7xi@proton.me">contact me</a>.<br>
+            In case you'd like to support me and help me improve the site and content,<br>
+            please consider donating or commissioning me on my <a href="https://ko-fi.com/xixdd">Kofi</a>.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html> 

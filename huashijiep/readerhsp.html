@@ -1,56 +1,473 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tutoriales HSP</title>
-  <link rel="icon" href="images/logo.jpg" type: "icon/x-image">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="stylesheet" href="css/down.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - 画世界Pro</title>
+    <meta name="description" content="Tutorial reader for 画世界Pro (Hua Shijie Pro)." />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        body {
+            background: #262728 url('images/bg.webp') repeat center top;
+            background-size: 100vw 50vw;
+            min-height: 100vh;
+        }
+
+        .container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #0173F4 0%, #0a3a75 35%, #262728 65%, #262728 100%);
+            min-height: 100dvh;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        /* ── Top Banner ── */
+        .top-banner {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            line-height: 0;
+        }
+
+        .top-banner img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Hero ── */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 0 24px;
+        }
+
+        .hero-image {
+            max-width: 320px;
+            width: 80%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+        }
+
+        /* ═══════════════════════════════════════
+           BACK BUTTON
+           ═══════════════════════════════════════ */
+        .back-btn {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            padding: 14px 24px;
+            margin: 0 auto 20px;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 50%, #0d0d0d 100%);
+            border-radius: 50px;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .back-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(200,200,200,0.5) 0%,
+                transparent 35%,
+                transparent 65%,
+                rgba(200,200,200,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .back-btn span {
+            position: relative;
+            z-index: 1;
+            color: #e6c35c;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow:
+                0 1px 0 rgba(0,0,0,0.8),
+                0 0 6px rgba(230,195,92,0.4);
+        }
+
+        .back-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .back-btn:active {
+            filter: brightness(0.85);
+            transform: translateY(1px);
+        }
+
+        /* ═══════════════════════════════════════
+           READER PANEL
+           ═══════════════════════════════════════ */
+        .reader-panel {
+            width: 97%;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: #e8e8e8;
+            border: 1px solid #a0a0a0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            box-shadow:
+                0 0 0 1px #555,
+                0 3px 14px rgba(0,0,0,0.55),
+                0 0 28px rgba(0,0,0,0.35);
+        }
+
+        .panel-header {
+            background: linear-gradient(
+                to bottom,
+                #e8e8e8 0%,
+                #ffffff 8%,
+                #c8c8c8 25%,
+                #a0a0a0 45%,
+                #b8b8b8 55%,
+                #808080 75%,
+                #606060 90%,
+                #404040 100%
+            );
+            color: #1a1a1a;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+            position: relative;
+        }
+
+        .panel-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.85);
+        }
+
+        .panel-body {
+            padding: 24px;
+            background: #e8e8e8;
+        }
+
+        /* ═══════════════════════════════════════
+           MARKDOWN CONTENT STYLES
+           ═══════════════════════════════════════ */
+
+        #content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #bbb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #content h2 {
+            font-size: 2.30rem;
+            font-weight: 700;
+            color: #222;
+            margin: 24px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin: 18px 0 10px 0;
+        }
+
+        #content p {
+            font-size: 1.9rem;
+            line-height: 1.7;
+            color: #2a2a2a;
+            margin: 0 0 14px 0;
+        }
+
+        #content p:last-child {
+            margin-bottom: 0;
+        }
+
+        #content a {
+            color: #0173F4;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        #content a:hover {
+            color: #015bb5;
+        }
+
+        #content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 16px auto;
+            border-radius: 3px;
+            box-shadow:
+                0 0 0 1px #999,
+                0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        #content ul,
+        #content ol {
+            margin: 0 0 14px 0;
+            padding-left: 24px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #2a2a2a;
+        }
+
+        #content li {
+            margin-bottom: 6px;
+        }
+
+        #content code {
+            background: #2a2a2a;
+            color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+            font-size: 0.85em;
+        }
+
+        #content pre {
+            background: #1e1e1e;
+            color: #e8e8e8;
+            padding: 16px;
+            border-radius: 3px;
+            overflow-x: auto;
+            margin: 0 0 14px 0;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+            border: 1px solid #444;
+        }
+
+        #content pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        #content blockquote {
+            margin: 0 0 14px 0;
+            padding: 12px 16px;
+            background: rgba(0,0,0,0.05);
+            border-left: 4px solid #0173F4;
+            border-radius: 0 3px 3px 0;
+            color: #333;
+            font-style: italic;
+        }
+
+        #content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                #999 20%,
+                #999 80%,
+                transparent 100%
+            );
+            margin: 24px 0;
+        }
+
+        #content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 0 14px 0;
+            font-size: 0.9rem;
+            box-shadow:
+                0 0 0 1px #999,
+                0 2px 8px rgba(0,0,0,0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        #content thead {
+            background: linear-gradient(
+                to bottom,
+                #d0d0d0 0%,
+                #b0b0b0 50%,
+                #909090 100%
+            );
+        }
+
+        #content th {
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 700;
+            color: #1a1a1a;
+            border-bottom: 2px solid #666;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        #content td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #ccc;
+            color: #2a2a2a;
+        }
+
+        #content tbody tr:nth-child(even) {
+            background: rgba(0,0,0,0.03);
+        }
+
+        #content tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        #content strong {
+            font-weight: 700;
+            color: #111;
+        }
+
+        #content em {
+            font-style: italic;
+            color: #333;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            text-align: center;
+            padding: 24px 16px 32px;
+            background: transparent;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand img {
+            width: 16px;
+            height: 16px;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .footer-brand span {
+            font-weight: 700;
+            color: #d0d0d0;
+            font-size: 0.85rem;
+        }
+
+        .site-footer a {
+            color: #d0d0d0;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
 <body>
-    <main>
-        <header>
-        <img src="images/logo.jpg" class="imglogo">
-        <h1 class="hu">HuaShijie Pro</h1>
-        <img src="../img/teluri.png" class="imglogo" id="huevo"/>
-    </header>
-        <div id="content">Cargando contenido...</div>
-    </main>
+
+    <div class="container">
+
+        <!-- Top Banner -->
+        <a href="../index.html" class="top-banner">
+            <img src="images/top-banner.webp" alt="Top banner">
+        </a>
+
+        <!-- Hero -->
+        <div class="hero-section">
+            <img src="images/hero.png" alt="画世界Pro" class="hero-image">
+        </div>
+
+        <!-- Back Button -->
+        <a href="tutorials.html" class="back-btn"><span>← Back</span></a>
+
+        <!-- Reader Panel -->
+        <div class="panel reader-panel">
+            <div class="panel-header" id="pageTitle">Loading...</div>
+            <div class="panel-body" id="content">
+                <p style="text-align:center;color:#666;">Loading content...</p>
+            </div>
+        </div>
+
+        <!-- Back Button (bottom) -->
+        <a href="tutorials.html" class="back-btn"><span>← Back</span></a>
+        <br><br>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-brand">
+                <img src="../favicon.ico" alt="">
+                <span>Telurines._.xd</span>
+            </div>
+            <p>All this content and information was made or gathered by me.<br>
+            If you want to add or inquire anything, just <a href="mailto:7_7xi@proton.me">contact me</a>.<br>
+            In case you'd like to support me and help me improve the site and content,<br>
+            please consider donating or commissioning me on my <a href="https://ko-fi.com/xixdd">Kofi</a>.</p>
+        </footer>
+
+    </div>
 
     <script>
         async function loadMarkdown() {
-            // 1. Obtener el nombre del archivo de la URL (?file=archivo.md)
             const params = new URLSearchParams(window.location.search);
             const fileName = params.get('file');
 
             if (!fileName) {
-                document.getElementById('content').innerHTML = "Error: No se especificó ningún archivo.";
+                document.getElementById('content').innerHTML = '<p style="text-align:center;color:#666;">Error: No file specified.</p>';
+                document.getElementById('pageTitle').textContent = 'Error';
                 return;
             }
 
+            // Derive title from filename
+            const cleanName = fileName.replace(/\.md$/i, '').replace(/[_-]/g, ' ');
+            document.getElementById('pageTitle').textContent = cleanName;
+            document.title = cleanName + ' - 画世界Pro';
+
             try {
-                // 2. Hacer fetch del archivo Markdown (debe estar en la misma carpeta o ruta relativa)
-                const url = `documentos/${fileName}`;
-                
-                const response = await fetch(`documentos/${fileName}`);
-                
-                if (!response.ok) throw new Error("Archivo no encontrado");
+                const response = await fetch('documentos/' + fileName);
+                if (!response.ok) throw new Error('File not found');
 
                 const markdownText = await response.text();
-
-                // 3. Renderizar el Markdown a HTML usando Marked.js
                 document.getElementById('content').innerHTML = marked.parse(markdownText);
             } catch (error) {
-                document.getElementById('content').innerHTML = "Error al cargar el artículo: " + error.message;
+                document.getElementById('content').innerHTML = '<p style="text-align:center;color:#c00;">Error loading: ' + fileName + '<br><small>' + error.message + '</small></p>';
             }
         }
 
-        // Ejecutar la función al cargar la página
         loadMarkdown();
     </script>
-</body>
 
+</body>
 </html>
