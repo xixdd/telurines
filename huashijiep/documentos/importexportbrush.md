@@ -2,9 +2,9 @@
 
 I always compare this app to ibis paint, because I believe 99% of people (who draw digitally) has used it at least once or twice. So this time I'm gonna mention it to start the tutorial.
 
-Unlike IbisPaint, HuaShijie Pro does not use QR codes to export or import brushes. That's not necessary a advantage or anything, just a difference. See, what it uses instead, are brush files. Every software usually has its own format of these files, which also is usually only accepted by that same software, however, there's a major exception, which is the Adobe Photoshop brush format ABR, which is probably the most compatible format.
+Unlike IbisPaint, HuaShijie Pro does not use QR codes to export or import brushes. That's not necessarily a advantage or anything, just a difference. See, what it uses instead, are brush files. Every software usually has its own format of these files, that also is usually accepted only by that same software; however, there's a major exception, the Adobe Photoshop brush format ABR, which is probably the most compatible format.
 
-And it also works on Huashijie Pro, so I'm going to use that format as an example to explain how the importing works.
+And it works on Huashijie Pro too, so I'm going to use that format as an example to explain how the importing works.
 
 ### Exporting brushes (导入画笔)
 
@@ -28,7 +28,7 @@ ___
 ![](./images/ieb/ieb0.webp)
 Okay, so once you've got your brushes downloaded, let's open 画世界Pro.
 
-Just open the brushes and look for the hamburger menu and the bottom right (3 lines), and you're gonna look for the second option from top to bottom.
+Just open the brushes and look for the hamburger menu at the bottom right (3 lines), and you're gonna look for the second option from top to bottom.
 
 <p class="ntms" align="center"> 导入画笔 </p>
 
