@@ -1,6 +1,6 @@
 ## Pressure dynamics ( 压力)
 
-Note: See "master size" [here.](interfacemap.html?file=saving.md)
+Note: See "master size" [here.](readerhsp.html?file=interfacemap.md)
 ___
 ![](./images/bs/pr/0pr.webp)
 ___
@@ -29,7 +29,7 @@ In (A), we are gonna have these 2 options, it is asking you how to measure the p
 
 ### Pressure measure for minimum diameter: Absolute value
 `最小直径——绝对值`
-So then, if you select "Absolute value," (a-2) you can chose a "fixed" number, pixels in this case. This means that if, for example you set this absolute value to 10 pixels, the nib won't get any smaller than that idepently of the master size you set in the [work screen](readerhsp.html?interfacemap=.md).
+So then, if you select "Absolute value," (a-2) you can chose a "fixed" number, pixels in this case. This means that if, for example you set this absolute value to 10 pixels, the nib won't get any smaller than that idepently of the master size you set in the [work screen](readerhsp.html?file=interfacemap.md).
 However, this is in theory. Because in practice, this number is automatically modified every time you change the master size. So I don't really recommend using this unless you're gonna work with a fixed master size because at the end, it's kinda the same but less precise.
 
 ![](./images/bs/pr/4pr.webp)
@@ -72,9 +72,11 @@ Yeah the same thing but for opacity. I didn't add a picture here because it's on
 
 The last set of configurations. One slider (Figure H,) and 2 toggles (Figures I & J.) 
 
-1. H) Sensitivity of the finger pressure. I recommend leaving this one at 100% always.
-2. I) Fade in and out the effects. For smoother appearance.
-3. J) Stroke speed replaces pressure.
+H) Sensitivity of the finger pressure. I recommend leaving this one at 100% always.
+
+I) Fade in and out the effects. For smoother appearance.
+
+J) Stroke speed replaces pressure.
 
 
 ___
