@@ -21,7 +21,7 @@ Note: I am going to say pressure from now on, but remember what I actually mean 
 ### 1. Pressure affects size (大小压力)
 
 At the top of the section we'll find our first set of settings. A selection menu with 2 options (A), and 2 sliders (B & C.)
-This, as the name tells, it to activate the size dynamism based on pressure, which is the simplest one.
+This, as the name tells, it's to activate the size dynamism based on pressure, which is the simplest one.
 
 ![](./images/bs/pr/3pr.webp)
 
