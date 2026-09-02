@@ -1,0 +1,422 @@
+.long-cang-regular {
+  font-family: "Long Cang", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.zhi-mang-xing-regular {
+  font-family: "Zhi Mang Xing", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+    body {
+      background: #262728 url('bg.webp') repeat center top;
+      background-size: 100vw 50vw;
+    }
+
+    .container-m {
+      width: 95%;
+      max-width: 600px;
+      background: #FAF9C8;
+      overflow: hidden;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 1rem;
+    }
+
+    .container-m h1 {
+      background: black;
+      color: white;
+      font-family: "Long Cang";
+      width: 100%;
+      font-size: 5rem;
+      text-shadow: 0.5rem 0.5rem 5px red;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .imgxd {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      z-index: 0;
+    }
+
+    header {
+      width: 100%;
+      padding: 2%;
+    }
+
+    .headerd {
+      width: 99%;
+      height: 5rem;
+      display: grid;
+      grid-template-columns: 90% 1fr;
+      font-family: "Lato";
+      font-weight: 700;
+      background: white;
+      border: black double 0.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .headerd #item {
+      padding: 1%;
+      font-size: 0.7rem;
+    }
+
+    .headerd img {
+      max-width: 4.2rem;
+      max-height: 4.2rem;
+      margin-top: auto;
+      margin-right: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .content h1 {
+      background: black;
+      width: 100%;
+      font-size: 1.3rem;
+      font-family: "Bebas Neue";
+      text-shadow: none;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 70% 1fr;
+      padding: 1rem;
+      gap: 0.3rem;
+      background: linear-gradient(#FAF9C833 90%, #FAF9C8 95%, #0E0A16 100%);
+      height: auto;
+      min-height: 1000px;
+    }
+
+    #imge {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .itemx {
+      width: 100%;
+    }
+
+    .itemx h2 {
+      text-align: center;
+      width: 100%;
+      border-bottom: black dashed 0.11rem;
+      background: linear-gradient(#E5BE73 50%, #BC7434 30% 75%, #CFB093 100%);
+      border: brown solid 2px;
+      color: white;
+      text-shadow: black 2px 2px;
+      border-radius: 10px;
+      font-family: sans-serif;
+    }
+
+    #qqqqp {
+      background: #BC7434;
+      height: auto;
+      min-height: 500px;
+      color: white;
+      padding: 0.5rem;
+    }
+
+    #qqqqp img {
+      padding: 0;
+    }
+
+    .itemc a {
+      color: #262728;
+    }
+
+    .itemc li {
+      margin-left: 2rem;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-family: "Lato";
+      font-weight: 700;
+    }
+
+    #imge {
+      margin-bottom: 2rem;
+    }
+
+    .xijin {
+      padding: 0.9rem 0.4rem;
+      background: linear-gradient(#FFF7DA 15%, #E4BE21 25% 80%, #FFD421 100%);
+      border: brown solid 2px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .xijin img {
+      border-radius: 5px;
+      border: brown solid 2px;
+    }
+
+    .xijin a {
+      font-size: 1.7rem;
+      font-family: sans-serif;
+    }
+
+    footer {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('xdh2.webp');
+      margin-top: auto;
+      background-size: 100%;
+      height: auto;
+      text-align: center;
+      padding: 24px 16px 32px;
+      color: white;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand img {
+      width: 16px;
+      height: 16px;
+      display: block;
+      opacity: 0.7;
+    }
+
+    .footer-brand span {
+      font-weight: 700;
+      color: #d0d0d0;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    footer .footer-all {
+      margin-top: 70%;
+    }
+
+    /* ==================== TABLET ==================== */
+    @media (min-width: 768px) {
+      .container-m {
+        max-width: 720px;
+      }
+
+      .container-m h1 {
+        font-size: 5.5rem;
+      }
+
+      .headerd {
+        height: 5.5rem;
+      }
+
+      .headerd #item {
+        font-size: 0.8rem;
+      }
+
+      .headerd img {
+        max-width: 4.8rem;
+        max-height: 4.8rem;
+      }
+
+      main {
+        min-height: 1100px;
+        gap: 0.4rem;
+      }
+
+      #qqqqp {
+        min-height: 550px;
+      }
+
+      .itemc li {
+        font-size: 1.15rem;
+      }
+
+      .xijin a {
+        font-size: 1.85rem;
+      }
+    }
+
+    /* ==================== DESKTOP ==================== */
+    @media (min-width: 1024px) {
+      .container-m {
+        max-width: 900px;
+      }
+
+      .container-m h1 {
+        font-size: 6.5rem;
+        text-shadow: 0.6rem 0.6rem 6px red;
+      }
+
+      .headerd {
+        height: 6.5rem;
+        border-width: 0.6rem;
+      }
+
+      .headerd #item {
+        font-size: 0.9rem;
+        padding: 1.5%;
+      }
+
+      .headerd img {
+        max-width: 5.5rem;
+        max-height: 5.5rem;
+      }
+
+      main {
+        min-height: 1300px;
+        gap: 0.6rem;
+        padding: 1.5rem;
+      }
+
+      #qqqqp {
+        min-height: 650px;
+        padding: 0.7rem;
+      }
+
+      .itemx h2 {
+        border-width: 3px;
+      }
+
+      .itemc li {
+        font-size: 1.3rem;
+        margin-top: 1.2rem;
+      }
+
+      .xijin {
+        padding: 1.1rem 0.5rem;
+        gap: 0.7em;
+      }
+
+      .xijin img {
+        border-width: 3px;
+      }
+
+      .xijin a {
+        font-size: 2.2rem;
+      }
+
+      #imge {
+        margin-bottom: 2.5rem;
+      }
+
+      footer {
+        padding: 28px 18px 36px;
+      }
+
+      .footer-brand {
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .footer-brand img {
+        width: 18px;
+        height: 18px;
+      }
+
+      .footer-brand span {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ==================== WIDE DESKTOP ==================== */
+    @media (min-width: 1440px) {
+      .container-m {
+        max-width: 1000px;
+      }
+
+      .container-m h1 {
+        font-size: 7rem;
+      }
+
+      .headerd {
+        height: 7rem;
+      }
+
+      main {
+        min-height: 1400px;
+      }
+
+      #qqqqp {
+        min-height: 700px;
+      }
+    }
