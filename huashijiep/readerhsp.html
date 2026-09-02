@@ -428,6 +428,12 @@
         <a href="tutorials.html" class="back-btn"><span>← Back</span></a>
         <br><br>
 
+        <!-- Comments Panel -->
+        <div class="panel reader-panel">
+            <div class="panel-header">Comments</div>
+            <div class="panel-body" id="giscus-container"></div>
+        </div>
+
         <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-brand">
@@ -443,6 +449,14 @@
     </div>
 
     <script>
+        // ═══════════════════════════════════════
+        // GISCUS CONFIG — Your real values
+        // ═══════════════════════════════════════
+        const GISCUS_REPO = 'danlujiner/753B4E16754C';
+        const GISCUS_REPO_ID = 'R_kgDOUMdA2A';
+        const GISCUS_CATEGORY = 'General';
+        const GISCUS_CATEGORY_ID = 'DIC_kwDOUMdA2M4DEwH9';
+
         async function loadMarkdown() {
             const params = new URLSearchParams(window.location.search);
             const fileName = params.get('file');
@@ -464,9 +478,39 @@
 
                 const markdownText = await response.text();
                 document.getElementById('content').innerHTML = marked.parse(markdownText);
+
+                // Load comments specific to this file
+                const discussionKey = fileName.replace(/\.md$/i, '');
+                loadGiscus(discussionKey);
+
             } catch (error) {
                 document.getElementById('content').innerHTML = '<p style="text-align:center;color:#c00;">Error loading: ' + fileName + '<br><small>' + error.message + '</small></p>';
             }
+        }
+
+        function loadGiscus(term) {
+            const container = document.getElementById('giscus-container');
+            container.innerHTML = ''; // clear previous
+
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', GISCUS_REPO);
+            script.setAttribute('data-repo-id', GISCUS_REPO_ID);
+            script.setAttribute('data-category', GISCUS_CATEGORY);
+            script.setAttribute('data-category-id', GISCUS_CATEGORY_ID);
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', term);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'gruvbox_light');
+            script.setAttribute('data-lang', 'en');
+            script.setAttribute('data-loading', 'lazy');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+
+            container.appendChild(script);
         }
 
         loadMarkdown();
